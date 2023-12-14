@@ -28,8 +28,12 @@ body {
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
 }
-
-
+.container section.flex {
+  flex-direction: column;
+}
+.CodeMirror.cm-s-default {
+  max-width: 100%;
+}
 /* 15 */
 .btn-15 {
   background: #b621fe;
@@ -138,8 +142,27 @@ body {
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
 }
+main {
+  min-height: calc(100vh - 225px);
+}
 
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+  padding: 20px 0;
+  background-color: #e5e7eb;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
+}
 
 /*-------------- notification ---------------------- */
 
@@ -190,3 +213,26 @@ body {
   display: none;
 }
 /*-------------- notification ---------------------- */
+
+
+
+@media (min-width: 1024px) { 
+  .CodeMirror.cm-s-default {
+    max-width: 500px;
+  }
+  .container section.flex {
+    flex-direction: row;
+  }
+ }
+@media (min-width: 1280px) { 
+    
+    .CodeMirror.cm-s-default {
+      max-width: 560px;
+    }
+ }
+@media (min-width: 1536px) { 
+  
+  .CodeMirror.cm-s-default {
+    max-width: 700px;
+  }
+}

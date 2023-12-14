@@ -6,28 +6,7 @@
   outline: 1px solid #555;
   
 }
-@media (min-width: 768px) { 
-  .CodeMirror.cm-s-default {
-    max-width: 400px;
-  }
- }
-@media (min-width: 1024px) { 
-  .CodeMirror.cm-s-default {
-    max-width: 500px;
-  }
- }
-@media (min-width: 1280px) { 
-    
-    .CodeMirror.cm-s-default {
-      max-width: 600px;
-    }
- }
-@media (min-width: 1536px) { 
-  
-  .CodeMirror.cm-s-default {
-    max-width: 700px;
-  }
-}
+
 .CodeMirror-lines {
   padding: 4px 0;
 }

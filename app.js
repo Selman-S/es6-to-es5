@@ -41,10 +41,9 @@
 
 
 function copyCodefunc()  {
-  let copyText = ''
- const code = document.querySelectorAll('.code-output .CodeMirror.cm-s-default .CodeMirror-lines .CodeMirror-code .CodeMirror-line ').forEach((item) => {
-    copyText += item.innerText  + '\n'
-  })
+  
+  
+  const copyText = es5Editor.doc.getValue()
 
 
   navigator.clipboard.writeText(copyText).then(() => {
