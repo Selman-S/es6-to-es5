@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <title>ES6 conversion ES5 (Babel.js online test) js escape js new syntax compatible with old browsers</title>
+  <link rel="stylesheet" href="codemirror.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+  <div class="bg-[#293CA6] bg-gradient-to-r from-[#293CA6] to-[#3854A6] text-white text-2xl p-4 text-center  ">ES6 to ES5</div>
+  <div class="Page container mx-auto mt-20">
+
+    <div class="flex">
+      <div class="flex-1 ">
+        <h5 class="text-2xl mb-2">ES6 code</h5>
+        <div class="code-input ">
+          <textarea id="text1" >
+</textarea>
+        </div>
+      </div>
+      <div class="code-btn">
+        <button id="convertBtn" class="custom-btn btn-15 my-10 fw-bold bg-[#8552F2] text-white px-4 py-2 rounded mx-4  btn btn-dark "><span>convert <img src="./convert-3209.svg" width="20" /></span> </button>
+      </div>
+      <div class="flex-1 ">
+        <h5 class="text-2xl mb-2">ES5 code</h5>
+        <div class="code-output">
+          <textarea id="text2">
+</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="notification" class="hidden">
+    <div class="notification-content">
+      <p>Giriş tamamlandı</p>
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.21.2/babel.min.js"></script>
+  <script src="https://cdn.staticfile.org/codemirror/5.58.2/codemirror.min.js"></script>
+  <script src="https://cdn.staticfile.org/codemirror/5.58.2/mode/javascript/javascript.js"></script>
+
+
+<script src="./app.js"></script>
+</body>
+
+</html>
