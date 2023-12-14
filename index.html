@@ -4,6 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Convert ES6 JavaScript code to ES5 online with this tool. Make your code compatible with older browsers.">
+  <meta name="keywords" content="ES6 to ES5, JavaScript code conversion, compatibility, online tool">
+  <title>ES6 to ES5 Code Converter - Online Tool</title>
+ 
   <!-- favicon -->
   <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,7 +31,8 @@
     }
   </style>
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-  <title>ES6 conversion ES5 (Babel.js online test) js escape js new syntax compatible with old browsers</title>
+
+
   <link rel="stylesheet" href="codemirror.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -35,10 +40,12 @@
 
 
 <body>
+  <header>
   <div class="bg-[#293CA6] bg-gradient-to-r from-[#293CA6] to-[#3854A6] text-white text-2xl p-4 text-center  ">ES6 to ES5</div>
-  <div class="Page container mx-auto mt-20">
+</header>
+  <main class="Page container mx-auto mt-20">
 
-    <div class="flex">
+    <section class="flex">
       <div class="flex-1 ">
         <h5 class="text-2xl mb-2">ES6 code</h5>
         <div class="code-input ">
@@ -47,7 +54,7 @@
         </div>
       </div>
       <div class="code-btn">
-        <button id="convertBtn" class="custom-btn btn-15 my-10 fw-bold bg-[#8552F2] text-white px-4 py-2 rounded mx-4  btn btn-dark "><span>convert <img src="./assets/convert-3209.svg" width="20" /></span> </button>
+        <button id="convertBtn" class="custom-btn btn-15 my-10 fw-bold bg-[#8552F2] text-white px-4 py-2 rounded mx-4  btn btn-dark "><span>convert <img src="./assets/convert-3209.svg" width="20" alt="convert icon"/></span> </button>
       </div>
       <div class="flex-1 ">
         <h5 class="text-2xl mb-2">ES5 code</h5>
@@ -56,8 +63,8 @@
 </textarea>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
   <div id="notification" class="hidden">
     <div class="notification-content">
       <p>Giriş tamamlandı</p>
