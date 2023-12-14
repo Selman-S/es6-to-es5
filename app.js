@@ -1,4 +1,4 @@
-new function () {
+
   var es6Editor = CodeMirror.fromTextArea(document.getElementById("text1"), { lineNumbers: true, mode: "javascript" })
   var es5Editor = CodeMirror.fromTextArea(document.getElementById("text2"), { lineNumbers: true, mode: "javascript" })
   var height = window.innerHeight * 0.60
@@ -6,21 +6,41 @@ new function () {
   es6Editor.setSize(undefined, height);
   es5Editor.setSize(undefined, height);
 
+ 
   convertBtn.onclick = function () {
-    var code = es6Editor.doc.getValue()
-    code = Babel.transform(code, { presets: ["env"] }).code
 
-    es5Editor.doc.setValue(code)
+    try {
+      var code = es6Editor.doc.getValue()
+      code = Babel.transform(code, { presets: ["env"] }).code
 
-    const copyBtn = `
-    <button class="copy-code-btn" onclick="copyCodefunc()">Copy Code</button>
-    `
-    document.querySelector('.code-output .copy-code-btn') && document.querySelector('.code-output  .copy-code-btn').remove()
-    document.querySelector('.code-output .CodeMirror.cm-s-default').insertAdjacentHTML('beforebegin', copyBtn)
+  
+      es5Editor.doc.setValue(code)
+  
+      const copyBtn = `
+      <button class="copy-code-btn" onclick="copyCodefunc()">Copy Code</button>
+      `
+      document.querySelector('.code-output .copy-code-btn') && document.querySelector('.code-output  .copy-code-btn').remove()
+      document.querySelector('.code-output .CodeMirror.cm-s-default').insertAdjacentHTML('beforebegin', copyBtn)
+
+      const clearBtn = `
+      <button class="clear-code-btn" onclick="clearCodefunc()">Clear Code</button>
+      `
+
+      document.querySelector('.code-input .clear-code-btn') && document.querySelector('.code-input  .clear-code-btn').remove()
+      document.querySelector('.code-input .CodeMirror.cm-s-default').insertAdjacentHTML('beforebegin', clearBtn)
+
+
+    } catch (error) {
+      console.log(error);
+      showNotification('Wrong Code Format','error');
+      
+    }
+   
   }
-}
 
-const copyCodefunc = () => {
+
+
+function copyCodefunc()  {
   let copyText = ''
  const code = document.querySelectorAll('.code-output .CodeMirror.cm-s-default .CodeMirror-lines .CodeMirror-code .CodeMirror-line ').forEach((item) => {
     copyText += item.innerText  + '\n'
@@ -42,6 +62,10 @@ const copyCodefunc = () => {
   
 }
 
+function clearCodefunc(){
+  es6Editor.doc.setValue('')
+  es5Editor.doc.setValue('')
+}
 
 function showNotification(text,color) {
   var notification = document.getElementById('notification');
@@ -60,7 +84,7 @@ function showNotification(text,color) {
   var progressBar = document.querySelector('.progress-bar');
   progressBar.style.animation = 'none';
   setTimeout(function () {
-    progressBar.style.animation = 'progress 1s ease-in-out forwards';
+    progressBar.style.animation = 'progress 2s ease-in-out forwards';
   }, 100);
 
   // 2 saniye sonra notification gizle
@@ -71,5 +95,5 @@ function showNotification(text,color) {
     
 
     }, 500); // Kaybolma animasyonu süresi
-  }, 1200); // Notification gösterme süresi
+  }, 2000); // Notification gösterme süresi
 }
