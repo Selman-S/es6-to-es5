@@ -65,6 +65,12 @@ function copyCodefunc()  {
 function clearCodefunc(){
   es6Editor.doc.setValue('')
   es5Editor.doc.setValue('')
+  document.querySelector('.code-output .copy-code-btn') && document.querySelector('.code-output  .copy-code-btn').remove()
+
+  document.querySelector('.code-input .clear-code-btn') && document.querySelector('.code-input  .clear-code-btn').remove()
+
+  showNotification('Code Cleared','info');
+  
 }
 
 function showNotification(text,color) {
