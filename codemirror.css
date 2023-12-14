@@ -3,7 +3,7 @@
   height: 300px;
   color: #000;
   direction: ltr;
-  outline: 1px solid #ccc;
+  outline: 1px solid #555;
   
 }
 @media (min-width: 768px) { 
@@ -41,7 +41,7 @@
 }
 .CodeMirror-gutters {
   border-right: 1px solid #ddd;
-  background-color: #f7f7f7;
+  background-color: #e5e5e5;
   white-space: nowrap;
 }
 .CodeMirror-linenumber {

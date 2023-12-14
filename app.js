@@ -1,7 +1,7 @@
 new function () {
   var es6Editor = CodeMirror.fromTextArea(document.getElementById("text1"), { lineNumbers: true, mode: "javascript" })
   var es5Editor = CodeMirror.fromTextArea(document.getElementById("text2"), { lineNumbers: true, mode: "javascript" })
-  var height = window.innerHeight * 0.75
+  var height = window.innerHeight * 0.60
   height = height > 200 ? height : 200
   es6Editor.setSize(undefined, height);
   es5Editor.setSize(undefined, height);
