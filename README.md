@@ -26,3 +26,4 @@
  
 
 
+![image](https://github.com/Selman-S/es6-to-es5/assets/97898216/2ae1fc6f-5426-4d1c-a1d2-bfec4e716422)
