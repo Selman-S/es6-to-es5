@@ -26,21 +26,3 @@
  
 
 
- 
- <br>
- 
-<h2>How to install</h2>
-
-<br>
-In the project directory, you can run:
-
-### `yarn start`
-
-
-
-<h2>How does my project look</h2>
-
-
-
-
-![vole](https://user-images.githubusercontent.com/97898216/218248573-84871520-bc8c-4541-8711-47dafc5b7c62.gif)
