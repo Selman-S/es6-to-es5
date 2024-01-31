@@ -1,4 +1,5 @@
 
+
   var es6Editor = CodeMirror.fromTextArea(document.getElementById("text1"), { lineNumbers: true, mode: "javascript" })
   var es5Editor = CodeMirror.fromTextArea(document.getElementById("text2"), { lineNumbers: true, mode: "javascript" })
   var height = window.innerHeight * 0.60
@@ -28,11 +29,27 @@
 
       document.querySelector('.code-input .clear-code-btn') && document.querySelector('.code-input  .clear-code-btn').remove()
       document.querySelector('.code-input .CodeMirror.cm-s-default').insertAdjacentHTML('beforebegin', clearBtn)
-
+      new Notify ({
+        status: 'success',
+        title: 'Code Converted',
+        text: 'success',
+        effect: 'slide',
+        speed: 300,
+        customClass: '',
+        customIcon: '',
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 2000,
+        gap: 20,
+        distance: 20,
+        type: 1,
+        position: 'left bottom'
+      })
 
     } catch (error) {
       console.log(error);
-      showNotification('Wrong Code Format','error');
+      // showNotification('Wrong Code Format','error');
       
     }
    
@@ -48,12 +65,44 @@ function copyCodefunc()  {
 
   navigator.clipboard.writeText(copyText).then(() => {
     // Success notification
-    showNotification('Code Copied','success');
+    new Notify ({
+      status: 'success',
+      title: 'Code Copied',
+      text: 'success',
+      effect: 'slide',
+      speed: 300,
+      customClass: '',
+      customIcon: '',
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 2000,
+      gap: 20,
+      distance: 20,
+      type: 1,
+      position: 'left bottom'
+    })
   }).catch(err => {
     // Error handling
  
-    
-    showNotification('Failed to copy','error');
+    new Notify ({
+      status: 'error',
+      title: 'Failed to copy',
+      text: 'error',
+      effect: 'slide',
+      speed: 300,
+      customClass: '',
+      customIcon: '',
+      showIcon: true,
+      showCloseButton: true,
+      autoclose: true,
+      autotimeout: 2000,
+      gap: 20,
+      distance: 20,
+      type: 1,
+      position: 'left bottom'
+    })
+    // notifier.error('Failed to copy');
   });
 
  
@@ -67,38 +116,24 @@ function clearCodefunc(){
   document.querySelector('.code-output .copy-code-btn') && document.querySelector('.code-output  .copy-code-btn').remove()
 
   document.querySelector('.code-input .clear-code-btn') && document.querySelector('.code-input  .clear-code-btn').remove()
-
-  showNotification('Code Cleared','info');
+  new Notify ({
+    status: 'info',
+    title: 'Code Cleared',
+    text: 'info',
+    effect: 'slide',
+    speed: 300,
+    customClass: '',
+    customIcon: '',
+    showIcon: true,
+    showCloseButton: true,
+    autoclose: true,
+    autotimeout: 2000,
+    gap: 20,
+    distance: 20,
+    type: 1,
+    position: 'left bottom'
+  })
+  // notifier.info('Code Cleared');
   
 }
 
-function showNotification(text,color) {
-  var notification = document.getElementById('notification');
-  notification.classList.remove('hidden');
-  notification.classList.remove('success');
-  notification.classList.remove('info');
-  notification.classList.remove('error');
-  notification.classList.add(color);
-
-  notification.querySelector('p').innerHTML = text;
-  setTimeout(function () {
-    notification.style.right = '20px'; // Sağa doğru gelecek
-  }, 100);
-
-  // Süre barı animasyonunu başlat
-  var progressBar = document.querySelector('.progress-bar');
-  progressBar.style.animation = 'none';
-  setTimeout(function () {
-    progressBar.style.animation = 'progress 2s ease-in-out forwards';
-  }, 100);
-
-  // 2 saniye sonra notification gizle
-  setTimeout(function () {
-    notification.style.right = '-300px'; // Sağa doğru kaybolacak
-    setTimeout(function () {
-      notification.classList.add('hidden');
-    
-
-    }, 500); // Kaybolma animasyonu süresi
-  }, 2000); // Notification gösterme süresi
-}
