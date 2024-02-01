@@ -61,7 +61,7 @@
         showIcon: true,
         showCloseButton: true,
         autoclose: true,
-        autotimeout: 2000,
+        autotimeout: 5000,
         gap: 20,
         distance: 20,
         type: 1,
