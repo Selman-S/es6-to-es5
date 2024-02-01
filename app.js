@@ -49,8 +49,24 @@
 
     } catch (error) {
       console.log(error);
-      // showNotification('Wrong Code Format','error');
-      
+       // showNotification('Wrong Code Format','error');
+       new Notify ({
+        status: 'error',
+        title: error.message,
+        text: 'error',
+        effect: 'slide',
+        speed: 300,
+        customClass: '',
+        customIcon: '',
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 2000,
+        gap: 20,
+        distance: 20,
+        type: 1,
+        position: 'left bottom'
+      })
     }
    
   }
