@@ -167,20 +167,34 @@
         return;
       }
 
-      // Pre-process: Clean up excessive whitespace in strings
+      // Pre-process: Clean up excessive whitespace in strings VERY aggressively
       function cleanStringWhitespace(code) {
-        // Find all string literals and clean them aggressively
-        return code.replace(/(["'`])([^"'`]*?)\1/g, function(match, quote, content) {
-          // Clean excessive whitespace in string content very aggressively
+        // Handle template literals (backticks) with multiline support
+        code = code.replace(/`([^`]*)`/gs, function(match, content) {
           const cleaned = content
-            .replace(/\n\s*/g, '\n') // Remove ALL spaces/tabs after newlines
-            .replace(/\s*\n\s*/g, '\n') // Remove spaces before and after newlines
-            .replace(/\t+/g, ' ') // Replace tabs with single space
-            .replace(/\s{2,}/g, ' ') // Replace multiple spaces with single space
-            .replace(/\s+/g, ' ') // Normalize all whitespace to single spaces
-            .trim(); // Remove leading/trailing whitespace
+            .replace(/\n\s+/g, '\n') // Remove indentation after newlines
+            .replace(/\s*\n\s*/g, '\n') // Clean around newlines
+            .replace(/\t+/g, ' ') // Tabs to single space
+            .replace(/\s{2,}/g, ' ') // Multiple spaces to single
+            .replace(/^\s+|\s+$/gm, '') // Trim each line
+            .replace(/\n+/g, '\n') // Multiple newlines to single
+            .trim();
+          return '`' + cleaned + '`';
+        });
+        
+        // Handle regular string literals (single and double quotes)
+        code = code.replace(/(["'])([^"']*?)\1/g, function(match, quote, content) {
+          const cleaned = content
+            .replace(/\n\s*/g, '\n') // Remove spaces after newlines
+            .replace(/\s*\n\s*/g, '\n') // Clean around newlines
+            .replace(/\t+/g, ' ') // Tabs to single space
+            .replace(/\s{2,}/g, ' ') // Multiple spaces to single
+            .replace(/^\s+|\s+$/gm, '') // Trim each line
+            .trim();
           return quote + cleaned + quote;
         });
+        
+        return code;
       }
 
       // Clean the code first
