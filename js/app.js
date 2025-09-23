@@ -16,19 +16,6 @@
 
   
       es5Editor.doc.setValue(code)
-  
-      const copyBtn = `
-      <button class="copy-code-btn" onclick="copyCodefunc()">Copy Code</button>
-      `
-      document.querySelector('.code-output .copy-code-btn') && document.querySelector('.code-output  .copy-code-btn').remove()
-      document.querySelector('.code-output .CodeMirror.cm-s-default').insertAdjacentHTML('beforebegin', copyBtn)
-
-      const clearBtn = `
-      <button class="clear-code-btn" onclick="clearCodefunc()">Clear Code</button>
-      `
-
-      document.querySelector('.code-input .clear-code-btn') && document.querySelector('.code-input  .clear-code-btn').remove()
-      document.querySelector('.code-input .CodeMirror.cm-s-default').insertAdjacentHTML('beforebegin', clearBtn)
       new Notify ({
         status: 'success',
         title: 'Code Converted',
@@ -129,9 +116,6 @@ function copyCodefunc()  {
 function clearCodefunc(){
   es6Editor.doc.setValue('')
   es5Editor.doc.setValue('')
-  document.querySelector('.code-output .copy-code-btn') && document.querySelector('.code-output  .copy-code-btn').remove()
-
-  document.querySelector('.code-input .clear-code-btn') && document.querySelector('.code-input  .clear-code-btn').remove()
   new Notify ({
     status: 'info',
     title: 'Code Cleared',

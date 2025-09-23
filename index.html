@@ -51,18 +51,20 @@
 
     <section class="flex">
       <div class="flex-1 ">
-        <h5 class="text-2xl mb-2">ES6 code</h5>
+        <h5 class="text-2xl mb-2">Input</h5>
         <div class="code-input ">
+          <button class="clear-code-btn" onclick="clearCodefunc()">Clear Code</button>
           <textarea id="text1" >
 </textarea>
         </div>
       </div>
       <div class="code-btn">
-        <button id="convertBtn" class="custom-btn btn-15 my-10 fw-bold bg-[#08cd14] text-white px-4 py-2 rounded mx-4  btn btn-dark "><span>convert <img src="./assets/icons/convert-3209.svg" width="20" alt="convert icon"/></span> </button>
+        <button id="convertBtn" class="custom-btn btn-15 my-10 fw-bold bg-[#08cd14] text-white px-4 py-2 rounded mx-4  btn btn-dark "><span>ES6 to ES5 <img src="./assets/icons/convert-3209.svg" width="20" alt="convert icon"/></span> </button>
       </div>
       <div class="flex-1 ">
-        <h5 class="text-2xl mb-2">ES5 code</h5>
+        <h5 class="text-2xl mb-2">Output</h5>
         <div class="code-output">
+          <button class="copy-code-btn" onclick="copyCodefunc()">Copy Code</button>
           <textarea id="text2">
 </textarea>
         </div>

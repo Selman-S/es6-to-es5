@@ -11,11 +11,9 @@ body {
 } */
 
 .custom-btn {
-  width: 130px;
-  height: 40px;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 25px;
+  padding: 10px ;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   background: transparent;
