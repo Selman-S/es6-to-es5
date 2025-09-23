@@ -55,7 +55,7 @@
     }
   }
 
-  // Minify function
+  // Minify function - Convert ES6 to ES5 first, then minify
   minifyBtn.onclick = async function () {
     try {
       var code = es6Editor.doc.getValue()
@@ -82,7 +82,10 @@
         return;
       }
 
-      // Minify the code using Terser
+      // Step 1: Convert ES6 to ES5 using Babel
+      code = Babel.transform(code, { presets: ["env"] }).code
+
+      // Step 2: Minify the ES5 code using Terser
       const minified = await Terser.minify(code, {
         compress: {
           drop_console: false, // Keep console.log statements
@@ -102,8 +105,8 @@
       
       new Notify ({
         status: 'success',
-        title: 'Code Minified',
-        text: 'Code successfully minified',
+        title: 'Code Converted & Minified',
+        text: 'ES6→ES5 conversion + minification completed',
         effect: 'slide',
         speed: 300,
         customClass: '',
@@ -140,7 +143,7 @@
     }
   }
 
-  // Deep Minify function - removes whitespace from strings too
+  // Deep Minify function - Convert ES6 to ES5 first, then ultra-aggressive minify
   deepMinifyBtn.onclick = async function () {
     try {
       var code = es6Editor.doc.getValue()
@@ -166,6 +169,9 @@
         })
         return;
       }
+
+      // Step 1: Convert ES6 to ES5 using Babel
+      code = Babel.transform(code, { presets: ["env"] }).code
 
       // Pre-process: Clean up excessive whitespace in strings ULTRA aggressively
       function cleanStringWhitespace(code) {
@@ -256,8 +262,8 @@
       
       new Notify ({
         status: 'success',
-        title: 'Code Deep Minified',
-        text: 'Code aggressively minified with string cleanup',
+        title: 'Code Converted & Deep Minified',
+        text: 'ES6→ES5 conversion + ultra-aggressive minification completed',
         effect: 'slide',
         speed: 300,
         customClass: '',
