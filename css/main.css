@@ -121,7 +121,9 @@ body {
   position: relative;
 
 }
-
+.code-btn {
+  padding: 40px 16px;
+}
 .clear-code-btn {
   position: absolute;
   top: -46px;
