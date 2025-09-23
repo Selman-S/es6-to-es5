@@ -12,6 +12,12 @@
   convertBtn.onclick = function () {
     try {
       var code = es6Editor.doc.getValue()
+      
+      // Track ES6 to ES5 conversion
+      if (typeof trackEvent === 'function') {
+        trackEvent('es6_to_es5_conversion', 'Code Conversion', 'ES6 to ES5', code.length);
+      }
+      
       code = Babel.transform(code, { presets: ["env"] }).code
 
       es5Editor.doc.setValue(code)
@@ -55,7 +61,7 @@
     }
   }
 
-  // Minify function - Convert ES6 to ES5 first, then minify
+  // Minify function
   minifyBtn.onclick = async function () {
     try {
       var code = es6Editor.doc.getValue()
@@ -82,11 +88,16 @@
         return;
       }
 
-      // Step 1: Convert ES6 to ES5 using Babel
-      code = Babel.transform(code, { presets: ["env"] }).code
+      // Track minify action
+      if (typeof trackEvent === 'function') {
+        trackEvent('minify_conversion', 'Code Conversion', 'ES6 to ES5 + Minify', code.length);
+      }
 
-      // Step 2: Minify the ES5 code using Terser
-      const minified = await Terser.minify(code, {
+      // First convert ES6 to ES5 using Babel
+      var es5Code = Babel.transform(code, { presets: ["env"] }).code
+
+      // Then minify the ES5 code using Terser
+      const minified = await Terser.minify(es5Code, {
         compress: {
           drop_console: false, // Keep console.log statements
           drop_debugger: false // Keep debugger statements
@@ -105,8 +116,8 @@
       
       new Notify ({
         status: 'success',
-        title: 'Code Converted & Minified',
-        text: 'ES6→ES5 conversion + minification completed',
+        title: 'Code Minified',
+        text: 'Code successfully minified',
         effect: 'slide',
         speed: 300,
         customClass: '',
@@ -143,7 +154,7 @@
     }
   }
 
-  // Deep Minify function - Convert ES6 to ES5 first, then ultra-aggressive minify
+  // Deep Minify function - removes whitespace from strings too
   deepMinifyBtn.onclick = async function () {
     try {
       var code = es6Editor.doc.getValue()
@@ -170,14 +181,16 @@
         return;
       }
 
-      // Step 1: Convert ES6 to ES5 using Babel
-      code = Babel.transform(code, { presets: ["env"] }).code
+      // Track deep minify action
+      if (typeof trackEvent === 'function') {
+        trackEvent('deep_minify_conversion', 'Code Conversion', 'ES6 to ES5 + Deep Minify', code.length);
+      }
 
-      // Skip string preprocessing to avoid syntax errors
-      // Use Terser's built-in compression instead
+      // First convert ES6 to ES5 using Babel
+      var es5Code = Babel.transform(code, { presets: ["env"] }).code
 
-      // Then minify with Terser using aggressive settings
-      const minified = await Terser.minify(code, {
+      // First minify normally with Terser
+      const minified = await Terser.minify(es5Code, {
         compress: {
           drop_console: false, // Keep console.log statements
           drop_debugger: false, // Keep debugger statements
@@ -226,12 +239,34 @@
         throw minified.error;
       }
 
-      es5Editor.doc.setValue(minified.code)
+      // After minification, clean up strings safely
+      function cleanStringsOnly(code) {
+        // More aggressive approach - remove all extra whitespace from the entire code
+        // This will clean up any remaining whitespace that Terser didn't catch
+        return code
+          .replace(/\s+/g, ' ') // Replace all multiple whitespace (including \n) with single space
+          .replace(/\\n\s*/g, '') // Remove literal \n and following spaces in strings
+          .replace(/\\n/g, '') // Remove any remaining literal \n
+          .replace(/;\s*}/g, ';}') // Remove space before closing braces after semicolon
+          .replace(/{\s*/g, '{') // Remove space after opening braces
+          .replace(/}\s*/g, '}') // Remove space after closing braces  
+          .replace(/,\s*/g, ',') // Remove space after commas
+          .replace(/:\s*/g, ':') // Remove space after colons
+          .replace(/;\s*/g, ';') // Remove space after semicolons
+          .replace(/\(\s*/g, '(') // Remove space after opening parentheses
+          .replace(/\s*\)/g, ')') // Remove space before closing parentheses
+          .replace(/\[\s*/g, '[') // Remove space after opening brackets
+          .replace(/\s*\]/g, ']') // Remove space before closing brackets
+          .trim();
+      }
+
+      const finalCode = cleanStringsOnly(minified.code);
+      es5Editor.doc.setValue(finalCode)
       
       new Notify ({
         status: 'success',
-        title: 'Code Converted & Deep Minified',
-        text: 'ES6→ES5 conversion + ultra-aggressive minification completed',
+        title: 'Code Deep Minified',
+        text: 'Code aggressively minified with string cleanup',
         effect: 'slide',
         speed: 300,
         customClass: '',
@@ -247,24 +282,11 @@
       })
 
     } catch (error) {
-      console.error('Deep Minify Error:', error);
-      
-      // Provide more detailed error information
-      let errorMessage = 'Failed to deep minify code';
-      if (error.message) {
-        if (error.message.includes('Unexpected token')) {
-          errorMessage = 'Syntax error in code. Please check your JavaScript syntax.';
-        } else if (error.message.includes('Parse error')) {
-          errorMessage = 'Code parsing failed. Please verify your code structure.';
-        } else {
-          errorMessage = error.message;
-        }
-      }
-      
+      console.log(error);
       new Notify ({
         status: 'error',
         title: 'Deep Minify Error',
-        text: errorMessage,
+        text: error.message || 'Failed to deep minify code',
         effect: 'slide',
         speed: 300,
         customClass: '',
@@ -288,6 +310,10 @@ function copyCodefunc()  {
   
   const copyText = es5Editor.doc.getValue()
 
+  // Track copy action
+  if (typeof trackEvent === 'function') {
+    trackEvent('copy_code', 'User Action', 'Copy Converted Code', copyText.length);
+  }
 
   navigator.clipboard.writeText(copyText).then(() => {
     // Success notification
@@ -337,6 +363,11 @@ function copyCodefunc()  {
 }
 
 function clearCodefunc(){
+  // Track clear action
+  if (typeof trackEvent === 'function') {
+    trackEvent('clear_code', 'User Action', 'Clear All Code');
+  }
+  
   es6Editor.doc.setValue('')
   es5Editor.doc.setValue('')
   new Notify ({
@@ -359,4 +390,106 @@ function clearCodefunc(){
   // notifier.info('Code Cleared');
   
 }
+
+// Cookie Consent Management
+(function() {
+  const COOKIE_CONSENT_KEY = 'es6_converter_cookie_consent';
+  const cookieConsent = document.getElementById('cookieConsent');
+  const acceptBtn = document.getElementById('acceptCookies');
+  const declineBtn = document.getElementById('declineCookies');
+
+  // Check if user has already given consent
+  function hasGivenConsent() {
+    return localStorage.getItem(COOKIE_CONSENT_KEY) !== null;
+  }
+
+  // Show cookie banner
+  function showCookieBanner() {
+    if (!hasGivenConsent() && cookieConsent) {
+      setTimeout(() => {
+        cookieConsent.classList.remove('translate-y-full');
+      }, 2000); // Show after 2 seconds
+    }
+  }
+
+  // Hide cookie banner
+  function hideCookieBanner() {
+    if (cookieConsent) {
+      cookieConsent.classList.add('translate-y-full');
+    }
+  }
+
+  // Enable Google Analytics
+  function enableAnalytics() {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted'
+      });
+      
+      // Track consent acceptance
+      gtag('event', 'cookie_consent', {
+        event_category: 'Privacy',
+        event_label: 'Accepted',
+        custom_parameter_1: 'cookie_consent_accepted'
+      });
+    }
+  }
+
+  // Disable Google Analytics
+  function disableAnalytics() {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'analytics_storage': 'denied'
+      });
+      
+      // Track consent decline
+      gtag('event', 'cookie_consent', {
+        event_category: 'Privacy',
+        event_label: 'Declined',
+        custom_parameter_1: 'cookie_consent_declined'
+      });
+    }
+  }
+
+  // Accept cookies
+  function acceptCookies() {
+    localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
+    enableAnalytics();
+    hideCookieBanner();
+  }
+
+  // Decline cookies
+  function declineCookies() {
+    localStorage.setItem(COOKIE_CONSENT_KEY, 'declined');
+    disableAnalytics();
+    hideCookieBanner();
+  }
+
+  // Event listeners
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', acceptCookies);
+  }
+  
+  if (declineBtn) {
+    declineBtn.addEventListener('click', declineCookies);
+  }
+
+  // Initialize
+  if (hasGivenConsent()) {
+    const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+    if (consent === 'accepted') {
+      enableAnalytics();
+    } else {
+      disableAnalytics();
+    }
+  } else {
+    // Set default consent to denied until user decides
+    if (typeof gtag === 'function') {
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied'
+      });
+    }
+    showCookieBanner();
+  }
+})();
 

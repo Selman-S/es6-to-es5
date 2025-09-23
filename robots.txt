@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://es6-to-es5-converter.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all CSS and JS files
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Block unnecessary files
+Disallow: /examcode.js
+Disallow: /examoutput.js
+Disallow: /*.log
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /README.md
+Disallow: /PROJECT_STRUCTURE.md

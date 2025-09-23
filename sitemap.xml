@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://es6-to-es5-converter.com/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://es6-to-es5-converter.com/assets/og-image.jpg</image:loc>
+      <image:title>ES6 to ES5 Converter - Free Online JavaScript Transpiler</image:title>
+      <image:caption>Convert ES6/ES2015+ JavaScript code to ES5 for browser compatibility</image:caption>
+    </image:image>
+  </url>
+</urlset>
