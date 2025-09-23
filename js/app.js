@@ -167,7 +167,7 @@
         return;
       }
 
-      // Pre-process: Clean up excessive whitespace in strings VERY aggressively
+      // Pre-process: Clean up excessive whitespace in strings ULTRA aggressively
       function cleanStringWhitespace(code) {
         // Handle template literals (backticks) with multiline support
         code = code.replace(/`([^`]*)`/gs, function(match, content) {
@@ -178,6 +178,7 @@
             .replace(/\s{2,}/g, ' ') // Multiple spaces to single
             .replace(/^\s+|\s+$/gm, '') // Trim each line
             .replace(/\n+/g, '\n') // Multiple newlines to single
+            .replace(/\n/g, '') // REMOVE ALL NEWLINES - make single line
             .trim();
           return '`' + cleaned + '`';
         });
@@ -190,6 +191,7 @@
             .replace(/\t+/g, ' ') // Tabs to single space
             .replace(/\s{2,}/g, ' ') // Multiple spaces to single
             .replace(/^\s+|\s+$/gm, '') // Trim each line
+            .replace(/\n/g, '') // REMOVE ALL NEWLINES - make single line
             .trim();
           return quote + cleaned + quote;
         });
