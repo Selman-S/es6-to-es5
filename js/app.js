@@ -140,6 +140,149 @@
     }
   }
 
+  // Deep Minify function - removes whitespace from strings too
+  deepMinifyBtn.onclick = async function () {
+    try {
+      var code = es6Editor.doc.getValue()
+      
+      // Check if code is empty
+      if (!code.trim()) {
+        new Notify ({
+          status: 'warning',
+          title: 'No Code to Deep Minify',
+          text: 'Please enter some code first',
+          effect: 'slide',
+          speed: 300,
+          customClass: '',
+          customIcon: '',
+          showIcon: true,
+          showCloseButton: true,
+          autoclose: true,
+          autotimeout: 3000,
+          gap: 20,
+          distance: 20,
+          type: 1,
+          position: 'left bottom'
+        })
+        return;
+      }
+
+      // Pre-process: Clean up excessive whitespace in strings
+      function cleanStringWhitespace(code) {
+        // Find all string literals and clean them
+        return code.replace(/(["'`])([^"'`]*?)\1/g, function(match, quote, content) {
+          // Clean excessive whitespace in string content
+          const cleaned = content
+            .replace(/\n\s+/g, '\n') // Remove indentation after newlines
+            .replace(/\s{2,}/g, ' ') // Replace multiple spaces with single space
+            .replace(/\t+/g, ' ') // Replace tabs with single space
+            .trim(); // Remove leading/trailing whitespace
+          return quote + cleaned + quote;
+        });
+      }
+
+      // Clean the code first
+      const preProcessedCode = cleanStringWhitespace(code);
+
+      // Then minify with Terser using aggressive settings
+      const minified = await Terser.minify(preProcessedCode, {
+        compress: {
+          drop_console: false, // Keep console.log statements
+          drop_debugger: false, // Keep debugger statements
+          sequences: true, // Join consecutive statements
+          dead_code: true, // Remove unreachable code
+          conditionals: true, // Optimize if-s and conditional expressions
+          comparisons: true, // Optimize comparisons
+          evaluate: true, // Evaluate constant expressions
+          booleans: true, // Optimize boolean expressions
+          loops: true, // Optimize loops
+          unused: true, // Drop unused variables/functions
+          hoist_funs: true, // Hoist function declarations
+          hoist_vars: false, // Don't hoist variable declarations
+          if_return: true, // Optimize if/return and if/continue
+          join_vars: true, // Join variable declarations
+          collapse_vars: true, // Collapse single-use variables
+          reduce_vars: true, // Improve optimization on variables
+          warnings: false, // Don't show warnings
+          negate_iife: true, // Negate "Immediately-Called Function Expressions"
+          pure_getters: true, // Assume that object property access does not have side effects
+          pure_funcs: null, // List of functions that do not have side effects
+          drop_console: false, // Keep console statements for debugging
+          expression: false, // Don't preserve completion values from terminal statements
+          keep_infinity: false, // Don't keep Infinity
+          side_effects: true // Drop side-effect-free statements
+        },
+        mangle: {
+          toplevel: true, // Mangle names declared in the top level scope
+          eval: false, // Don't mangle names in scopes where eval or with are used
+          keep_fnames: false, // Don't keep function names
+          reserved: [] // Reserved names to exclude from mangling
+        },
+        format: {
+          comments: false, // Remove all comments
+          beautify: false, // Don't beautify output
+          indent_level: 0, // No indentation
+          indent_start: 0, // No initial indentation
+          quote_keys: false, // Don't quote object keys
+          space_colon: false, // No space after colon
+          ascii_only: false, // Don't escape Unicode characters
+          inline_script: false, // Don't escape </script>
+          width: 80, // Line width for beautified output
+          max_line_len: false, // No maximum line length
+          bracketize: false, // Don't always insert brackets in if/for/do/while/with statements
+          semicolons: true, // Use semicolons to separate statements
+          preserve_line: false, // Don't preserve line numbers
+          wrap_iife: false, // Don't wrap immediately invoked function expressions
+          preamble: null // No preamble
+        }
+      });
+
+      if (minified.error) {
+        throw minified.error;
+      }
+
+      es5Editor.doc.setValue(minified.code)
+      
+      new Notify ({
+        status: 'success',
+        title: 'Code Deep Minified',
+        text: 'Code aggressively minified with string cleanup',
+        effect: 'slide',
+        speed: 300,
+        customClass: '',
+        customIcon: '',
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 2000,
+        gap: 20,
+        distance: 20,
+        type: 1,
+        position: 'left bottom'
+      })
+
+    } catch (error) {
+      console.log(error);
+      new Notify ({
+        status: 'error',
+        title: 'Deep Minify Error',
+        text: error.message || 'Failed to deep minify code',
+        effect: 'slide',
+        speed: 300,
+        customClass: '',
+        customIcon: '',
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 5000,
+        gap: 20,
+        distance: 20,
+        type: 1,
+        position: 'left bottom'
+      })
+    }
+  }
+
 
 
 function copyCodefunc()  {
