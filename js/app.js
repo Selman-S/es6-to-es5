@@ -175,38 +175,53 @@
 
       // Pre-process: Clean up excessive whitespace in strings ULTRA aggressively
       function cleanStringWhitespace(code) {
-        // Handle template literals (backticks) with multiline support
-        code = code.replace(/`([^`]*)`/gs, function(match, content) {
-          const cleaned = content
-            .replace(/\n\s+/g, '\n') // Remove indentation after newlines
-            .replace(/\s*\n\s*/g, '\n') // Clean around newlines
-            .replace(/\t+/g, ' ') // Tabs to single space
-            .replace(/\s{2,}/g, ' ') // Multiple spaces to single
-            .replace(/^\s+|\s+$/gm, '') // Trim each line
-            .replace(/\n+/g, '\n') // Multiple newlines to single
-            .replace(/\n/g, '') // REMOVE ALL NEWLINES - make single line
-            .trim();
-          return '`' + cleaned + '`';
-        });
-        
-        // Handle regular string literals (single and double quotes)
-        code = code.replace(/(["'])([^"']*?)\1/g, function(match, quote, content) {
-          const cleaned = content
-            .replace(/\n\s*/g, '\n') // Remove spaces after newlines
-            .replace(/\s*\n\s*/g, '\n') // Clean around newlines
-            .replace(/\t+/g, ' ') // Tabs to single space
-            .replace(/\s{2,}/g, ' ') // Multiple spaces to single
-            .replace(/^\s+|\s+$/gm, '') // Trim each line
-            .replace(/\n/g, '') // REMOVE ALL NEWLINES - make single line
-            .trim();
-          return quote + cleaned + quote;
-        });
-        
-        return code;
+        try {
+          // Handle template literals (backticks) with multiline support - more careful approach
+          code = code.replace(/`([^`]*)`/gs, function(match, content) {
+            if (!content) return match; // Don't process empty strings
+            
+            const cleaned = content
+              .replace(/\n\s+/g, '\n') // Remove indentation after newlines
+              .replace(/\s*\n\s*/g, '\n') // Clean around newlines
+              .replace(/\t+/g, ' ') // Tabs to single space
+              .replace(/\s{2,}/g, ' ') // Multiple spaces to single
+              .replace(/^\s+|\s+$/gm, '') // Trim each line
+              .replace(/\n+/g, '\n') // Multiple newlines to single
+              .replace(/\n/g, '') // REMOVE ALL NEWLINES - make single line
+              .trim();
+            return '`' + cleaned + '`';
+          });
+          
+          // Handle regular string literals (single and double quotes) - more careful approach
+          code = code.replace(/(["'])([^"'\\]*(\\.[^"'\\]*)*)\1/g, function(match, quote, content) {
+            if (!content) return match; // Don't process empty strings
+            
+            const cleaned = content
+              .replace(/\n\s*/g, '\n') // Remove spaces after newlines
+              .replace(/\s*\n\s*/g, '\n') // Clean around newlines
+              .replace(/\t+/g, ' ') // Tabs to single space
+              .replace(/\s{2,}/g, ' ') // Multiple spaces to single
+              .replace(/^\s+|\s+$/gm, '') // Trim each line
+              .replace(/\n/g, '') // REMOVE ALL NEWLINES - make single line
+              .trim();
+            return quote + cleaned + quote;
+          });
+          
+          return code;
+        } catch (error) {
+          console.warn('String cleanup failed, using original code:', error);
+          return code; // Return original code if cleanup fails
+        }
       }
 
-      // Clean the code first
-      const preProcessedCode = cleanStringWhitespace(code);
+      // Clean the code first (with fallback)
+      let preProcessedCode;
+      try {
+        preProcessedCode = cleanStringWhitespace(code);
+      } catch (error) {
+        console.warn('String preprocessing failed, using original code:', error);
+        preProcessedCode = code;
+      }
 
       // Then minify with Terser using aggressive settings
       const minified = await Terser.minify(preProcessedCode, {
@@ -279,11 +294,24 @@
       })
 
     } catch (error) {
-      console.log(error);
+      console.error('Deep Minify Error:', error);
+      
+      // Provide more detailed error information
+      let errorMessage = 'Failed to deep minify code';
+      if (error.message) {
+        if (error.message.includes('Unexpected token')) {
+          errorMessage = 'Syntax error in code. Please check your JavaScript syntax.';
+        } else if (error.message.includes('Parse error')) {
+          errorMessage = 'Code parsing failed. Please verify your code structure.';
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      
       new Notify ({
         status: 'error',
         title: 'Deep Minify Error',
-        text: error.message || 'Failed to deep minify code',
+        text: errorMessage,
         effect: 'slide',
         speed: 300,
         customClass: '',
