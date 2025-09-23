@@ -169,13 +169,15 @@
 
       // Pre-process: Clean up excessive whitespace in strings
       function cleanStringWhitespace(code) {
-        // Find all string literals and clean them
+        // Find all string literals and clean them aggressively
         return code.replace(/(["'`])([^"'`]*?)\1/g, function(match, quote, content) {
-          // Clean excessive whitespace in string content
+          // Clean excessive whitespace in string content very aggressively
           const cleaned = content
-            .replace(/\n\s+/g, '\n') // Remove indentation after newlines
-            .replace(/\s{2,}/g, ' ') // Replace multiple spaces with single space
+            .replace(/\n\s*/g, '\n') // Remove ALL spaces/tabs after newlines
+            .replace(/\s*\n\s*/g, '\n') // Remove spaces before and after newlines
             .replace(/\t+/g, ' ') // Replace tabs with single space
+            .replace(/\s{2,}/g, ' ') // Replace multiple spaces with single space
+            .replace(/\s+/g, ' ') // Normalize all whitespace to single spaces
             .trim(); // Remove leading/trailing whitespace
           return quote + cleaned + quote;
         });
