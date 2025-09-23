@@ -221,17 +221,10 @@
         format: {
           comments: false, // Remove all comments
           beautify: false, // Don't beautify output
-          indent_level: 0, // No indentation
-          indent_start: 0, // No initial indentation
-          quote_keys: false, // Don't quote object keys
-          space_colon: false, // No space after colon
           ascii_only: false, // Don't escape Unicode characters
           inline_script: false, // Don't escape </script>
-          width: 80, // Line width for beautified output
           max_line_len: false, // No maximum line length
-          bracketize: false, // Don't always insert brackets in if/for/do/while/with statements
           semicolons: true, // Use semicolons to separate statements
-          preserve_line: false, // Don't preserve line numbers
           wrap_iife: false, // Don't wrap immediately invoked function expressions
           preamble: null // No preamble
         }
