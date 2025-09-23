@@ -173,58 +173,11 @@
       // Step 1: Convert ES6 to ES5 using Babel
       code = Babel.transform(code, { presets: ["env"] }).code
 
-      // Pre-process: Clean up excessive whitespace in strings ULTRA aggressively
-      function cleanStringWhitespace(code) {
-        try {
-          // Handle template literals (backticks) with multiline support - more careful approach
-          code = code.replace(/`([^`]*)`/gs, function(match, content) {
-            if (!content) return match; // Don't process empty strings
-            
-            const cleaned = content
-              .replace(/\n\s+/g, '\n') // Remove indentation after newlines
-              .replace(/\s*\n\s*/g, '\n') // Clean around newlines
-              .replace(/\t+/g, ' ') // Tabs to single space
-              .replace(/\s{2,}/g, ' ') // Multiple spaces to single
-              .replace(/^\s+|\s+$/gm, '') // Trim each line
-              .replace(/\n+/g, '\n') // Multiple newlines to single
-              .replace(/\n/g, '') // REMOVE ALL NEWLINES - make single line
-              .trim();
-            return '`' + cleaned + '`';
-          });
-          
-          // Handle regular string literals (single and double quotes) - more careful approach
-          code = code.replace(/(["'])([^"'\\]*(\\.[^"'\\]*)*)\1/g, function(match, quote, content) {
-            if (!content) return match; // Don't process empty strings
-            
-            const cleaned = content
-              .replace(/\n\s*/g, '\n') // Remove spaces after newlines
-              .replace(/\s*\n\s*/g, '\n') // Clean around newlines
-              .replace(/\t+/g, ' ') // Tabs to single space
-              .replace(/\s{2,}/g, ' ') // Multiple spaces to single
-              .replace(/^\s+|\s+$/gm, '') // Trim each line
-              .replace(/\n/g, '') // REMOVE ALL NEWLINES - make single line
-              .trim();
-            return quote + cleaned + quote;
-          });
-          
-          return code;
-        } catch (error) {
-          console.warn('String cleanup failed, using original code:', error);
-          return code; // Return original code if cleanup fails
-        }
-      }
-
-      // Clean the code first (with fallback)
-      let preProcessedCode;
-      try {
-        preProcessedCode = cleanStringWhitespace(code);
-      } catch (error) {
-        console.warn('String preprocessing failed, using original code:', error);
-        preProcessedCode = code;
-      }
+      // Skip string preprocessing to avoid syntax errors
+      // Use Terser's built-in compression instead
 
       // Then minify with Terser using aggressive settings
-      const minified = await Terser.minify(preProcessedCode, {
+      const minified = await Terser.minify(code, {
         compress: {
           drop_console: false, // Keep console.log statements
           drop_debugger: false, // Keep debugger statements
