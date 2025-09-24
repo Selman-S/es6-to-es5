@@ -69,8 +69,23 @@
       }
     });
     
-    // Custom event function for easy tracking
-    function trackEvent(action, category = 'User Interaction', label = '', value = 0) {
+    // Enhanced GTM DataLayer tracking function
+    function trackEvent(action, category = 'User Interaction', label = '', value = 0, customData = {}) {
+      // GTM DataLayer push
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'custom_event',
+        event_action: action,
+        event_category: category,
+        event_label: label,
+        event_value: value,
+        user_timestamp: new Date().getTime(),
+        page_location: window.location.href,
+        page_title: document.title,
+        ...customData
+      });
+      
+      // Also keep GA4 tracking
       gtag('event', action, {
         event_category: category,
         event_label: label,
