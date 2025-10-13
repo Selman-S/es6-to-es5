@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N72J47LX');</script>
+  <!-- End Google Tag Manager -->
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Common ES6 Features Not Supported in Older Browsers | ES6 to ES5 Converter</title>
+  <meta name="title" content="Common ES6 Features Not Supported in Older Browsers | ES6 to ES5 Converter">
+  <meta name="description" content="Discover which ES6 JavaScript features don't work in older browsers like IE11. Learn about arrow functions, let/const, template literals, classes, and how to convert them to ES5.">
+  <meta name="keywords" content="es6 features, javascript compatibility, old browsers, es6 support, ie11 compatibility, arrow functions, template literals, let const">
+  <meta name="author" content="Selman Sahbudak">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://es6-to-es5.vercel.app/blog/es6-features-not-supported-in-old-browsers/">
+  <meta property="og:title" content="Common ES6 Features Not Supported in Older Browsers">
+  <meta property="og:description" content="Discover which ES6 JavaScript features don't work in older browsers and learn how to convert them to ES5 for maximum compatibility.">
+  <meta property="og:site_name" content="ES6 to ES5 Converter">
+  <meta property="article:author" content="Selman Sahbudak">
+  <meta property="article:published_time" content="2025-01-17T10:00:00Z">
+  <meta property="article:section" content="JavaScript Tutorials">
+  <meta property="article:tag" content="ES6 Features">
+  <meta property="article:tag" content="Browser Compatibility">
+  <meta property="article:tag" content="Legacy Support">
+  <meta property="article:tag" content="Internet Explorer">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://es6-to-es5.vercel.app/blog/es6-features-not-supported-in-old-browsers/">
+  <meta property="twitter:title" content="Common ES6 Features Not Supported in Older Browsers">
+  <meta property="twitter:description" content="Learn which ES6 features don't work in older browsers and how to convert them to ES5.">
+  <meta property="twitter:creator" content="@selman_s">
+  
+  <link rel="canonical" href="https://es6-to-es5.vercel.app/blog/es6-features-not-supported-in-old-browsers/">
+  
+  <!-- Performance optimizations -->
+  <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+  <link rel="preload" href="../../css/main.css" as="style">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- JSON-LD Structured Data for Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Common ES6 Features Not Supported in Older Browsers",
+    "description": "Discover which ES6 JavaScript features don't work in older browsers like IE11. Learn about arrow functions, let/const, template literals, classes, and how to convert them to ES5.",
+    "url": "https://es6-to-es5.vercel.app/blog/es6-features-not-supported-in-old-browsers/",
+    "datePublished": "2025-01-17T10:00:00Z",
+    "dateModified": "2025-01-17T10:00:00Z",
+    "wordCount": "1800",
+    "timeRequired": "PT8M",
+    "author": {
+      "@type": "Person",
+      "name": "Selman Sahbudak",
+      "url": "https://selmansahbudak.com.tr/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ES6 to ES5 Converter",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://es6-to-es5.vercel.app/assets/favicon.ico"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://es6-to-es5.vercel.app/blog/es6-features-not-supported-in-old-browsers/"
+    },
+    "keywords": ["ES6 Features", "Browser Compatibility", "IE11", "Legacy Support", "Arrow Functions", "Template Literals", "JavaScript Transpilation"],
+    "articleSection": "JavaScript Tutorials",
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "ES6 Features",
+        "description": "Modern JavaScript features introduced in ECMAScript 2015"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Browser Compatibility",
+        "description": "Support for web technologies across different browsers"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../../css/main.css">
+  
+  <!-- Syntax Highlighting for Code Blocks -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N72J47LX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <header>
+    <div class="bg-[#293CA6] bg-gradient-to-r from-[#293CA6] to-[#3854A6] text-white text-2xl p-4">
+      <!-- Navigation Menu -->
+      <nav class="container mx-auto flex justify-between items-center mb-4">
+        <a href="/" class="text-xl font-semibold hover:text-blue-200 transition-colors">ES6→ES5</a>
+        <div class="flex space-x-6">
+          <a href="/" class="hover:text-blue-200 transition-colors">🏠 Home</a>
+          <a href="/blog/" class="hover:text-blue-200 transition-colors">📚 Blog</a>
+          <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="hover:text-blue-200 transition-colors">💻 GitHub</a>
+        </div>
+      </nav>
+    </div>
+</header>
+
+  <main class="container mx-auto mt-8 px-4 max-w-4xl">
+    
+    <!-- Breadcrumbs -->
+    <nav class="text-sm mb-8" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2 text-gray-500">
+        <li><a href="/" class="hover:text-blue-600">Home</a></li>
+        <li class="flex items-center">
+          <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+          <a href="/blog/" class="hover:text-blue-600">Blog</a>
+        </li>
+        <li class="flex items-center">
+          <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+          <span class="text-gray-800">ES6 Features Not Supported in Old Browsers</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <article class="prose prose-lg max-w-none">
+      <header class="mb-12 text-center">
+        <div class="mb-4">
+          <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Compatibility Guide</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
+          Common ES6 Features Not Supported in Older Browsers
+        </h1>
+        <div class="flex justify-center items-center space-x-6 text-gray-600 mb-8">
+          <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            <span>Selman Sahbudak</span>
+          </div>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z"></path>
+            </svg>
+            <time datetime="2025-01-17">January 17, 2025</time>
+          </div>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="prose prose-lg max-w-none">
+        
+        <p class="text-xl text-gray-700 leading-relaxed mb-8">
+          Writing modern JavaScript is great — <strong>it's cleaner, shorter, and more powerful.</strong> But not every browser understands the latest ES6 syntax. Features like <code>let</code>, <code>const</code>, arrow functions, and <code>Promise</code> can easily <strong>break older browsers like Internet Explorer</strong> or outdated Android WebViews. In this article, we'll explore <strong>the most common ES6 features that cause compatibility issues</strong>, why they matter, and how you can make your code run everywhere.
+        </p>
+
+        <!-- Browser Compatibility Alert -->
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-red-600 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+              <h3 class="font-semibold text-red-800 mb-2">⚠️ Legacy Browser Alert</h3>
+              <p class="text-red-700 text-sm mb-3">
+                If your website needs to support Internet Explorer 11, older Android browsers (pre-2018), or corporate environments with strict browser policies, the ES6 features below will cause JavaScript errors.
+              </p>
+              <p class="text-red-700 text-sm">
+                <strong>Solution:</strong> Convert your ES6 code to ES5 using our <a href="/" class="underline hover:text-red-900">free online transpiler</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-8">
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">🏹 1. Arrow Functions</h2>
+        
+        <p class="mb-6">
+          Arrow functions are one of the most popular ES6 features, providing a shorter syntax for function expressions. However, they're completely unsupported in IE11 and older browsers.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <!-- ES6 Version -->
+          <div>
+            <h4 class="font-semibold text-red-600 mb-3">❌ ES6 (Not Supported in IE11)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// Arrow functions
+const add = (a, b) => a + b;
+
+const users = ['Alice', 'Bob', 'Charlie'];
+const upperNames = users.map(name => name.toUpperCase());
+
+// Arrow function with this binding
+const obj = {
+  name: 'Example',
+  greet: () => {
+    console.log(`Hello, ${this.name}`);
+  }
+};</code></pre>
+            </div>
+          </div>
+          
+          <!-- ES5 Version -->
+          <div>
+            <h4 class="font-semibold text-green-600 mb-3">✅ ES5 (Works Everywhere)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// Regular functions
+var add = function(a, b) { 
+  return a + b; 
+};
+
+var users = ['Alice', 'Bob', 'Charlie'];
+var upperNames = users.map(function(name) {
+  return name.toUpperCase();
+});
+
+// Regular function with proper this binding
+var obj = {
+  name: 'Example',
+  greet: function() {
+    console.log('Hello, ' + this.name);
+  }
+};</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
+          <p class="text-yellow-800 text-sm">
+            <strong>⚠️ Behavior Note:</strong> Arrow functions behave differently with <code>this</code> binding — especially around scope — so always test carefully after conversion.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">📦 2. Let & Const Variables</h2>
+        
+        <p class="mb-6">
+          <code>let</code> and <code>const</code> provide block-scoped variables, which is much safer than <code>var</code>. Unfortunately, they don't exist in ES5, so all variables must use <code>var</code>.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <!-- ES6 Version -->
+          <div>
+            <h4 class="font-semibold text-red-600 mb-3">❌ ES6 (Block-scoped)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// Block-scoped variables
+const API_URL = 'https://api.example.com';
+let count = 0;
+
+function processItems(items) {
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    let result = processItem(item);
+    count++;
+  }
+  // i and item are not accessible here
+}
+
+// const prevents reassignment
+const config = { debug: true };
+// config = {}; // TypeError!</code></pre>
+            </div>
+          </div>
+          
+          <!-- ES5 Version -->
+          <div>
+            <h4 class="font-semibold text-green-600 mb-3">✅ ES5 (Function-scoped)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// Function-scoped variables
+var API_URL = 'https://api.example.com';
+var count = 0;
+
+function processItems(items) {
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+    var result = processItem(item);
+    count++;
+  }
+  // i and item are still accessible here!
+}
+
+// var allows reassignment
+var config = { debug: true };
+config = {}; // Works, but dangerous</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8">
+          <p class="text-blue-800 text-sm">
+            <strong>⚠️ Important:</strong> Behavior is slightly different — especially around scope — so always test carefully when converting <code>let</code>/<code>const</code> to <code>var</code>.
+          </p>
+        </div>
+
+        <div class="bg-green-50 border border-green-200 p-4 rounded-lg mb-8">
+          <p class="text-green-800 text-sm">
+            <strong>💡 Pro Tip:</strong> Converting these manually is error-prone — automated tools like our <a href="/" class="underline hover:text-green-900">ES6-to-ES5 converter</a> handle it better and safer.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">🎭 3. Template Literals</h2>
+        
+        <p class="mb-6">
+          Template literals with backticks make string interpolation elegant and multiline strings easy. In ES5, you must use string concatenation instead.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <!-- ES6 Version -->
+          <div>
+            <h4 class="font-semibold text-red-600 mb-3">❌ ES6 (Template Literals)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// Template literals with interpolation
+const name = 'John';
+const age = 30;
+const message = `Hello, ${name}! 
+You are ${age} years old.
+Today is ${new Date().toDateString()}.`;
+
+// Tagged template literals
+function highlight(strings, ...values) {
+  return strings.reduce((result, string, i) => 
+    result + string + (values[i] ? `<mark>${values[i]}</mark>` : ''), 
+  '');
+}
+
+const highlighted = highlight`Name: ${name}, Age: ${age}`;</code></pre>
+            </div>
+          </div>
+          
+          <!-- ES5 Version -->
+          <div>
+            <h4 class="font-semibold text-green-600 mb-3">✅ ES5 (String Concatenation)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// String concatenation
+var name = 'John';
+var age = 30;
+var message = 'Hello, ' + name + '! \n' + 
+              'You are ' + age + ' years old.\n' +
+              'Today is ' + new Date().toDateString() + '.';
+
+// Manual string building
+function highlight(template, name, age) {
+  return 'Name: <mark>' + name + '</mark>, Age: <mark>' + age + '</mark>';
+}
+
+var highlighted = highlight(null, name, age);</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-green-50 border border-green-200 p-4 rounded-lg mb-8">
+          <p class="text-green-800 text-sm">
+            <strong>🔁 Converting templates manually is error-prone</strong> — automated tools handle string interpolation, escaping, and multiline conversions much better and safer.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">🏗️ 4. Classes and Modules</h2>
+        
+        <p class="mb-6">
+          ES6 classes provide a cleaner syntax for object-oriented programming, while modules enable better code organization. Both need significant transformation for ES5 compatibility.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <!-- ES6 Version -->
+          <div>
+            <h4 class="font-semibold text-red-600 mb-3">❌ ES6 (Classes & Modules)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// ES6 Classes
+class Vehicle {
+  constructor(type) {
+    this.type = type;
+  }
+  
+  start() {
+    console.log(`${this.type} started`);
+  }
+}
+
+class Car extends Vehicle {
+  constructor(brand) {
+    super('car');
+    this.brand = brand;
+  }
+  
+  honk() {
+    console.log(`${this.brand} car honks!`);
+  }
+}
+
+// ES6 Modules
+import { helper } from './utils.js';
+export default Car;</code></pre>
+            </div>
+          </div>
+          
+          <!-- ES5 Version -->
+          <div>
+            <h4 class="font-semibold text-green-600 mb-3">✅ ES5 (Prototypes & Global/IIFE)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// ES5 Constructor Functions
+function Vehicle(type) {
+  this.type = type;
+}
+
+Vehicle.prototype.start = function() {
+  console.log(this.type + ' started');
+};
+
+function Car(brand) {
+  Vehicle.call(this, 'car');
+  this.brand = brand;
+}
+
+// Inheritance setup
+Car.prototype = Object.create(Vehicle.prototype);
+Car.prototype.constructor = Car;
+
+Car.prototype.honk = function() {
+  console.log(this.brand + ' car honks!');
+};
+
+// Module pattern (IIFE)
+window.Car = Car;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">⏳ 5. Promises and Async/Await</h2>
+        
+        <p class="mb-6">
+          Promises revolutionized asynchronous JavaScript, and async/await made it even cleaner. However, these don't exist in ES5 and require polyfills or callback-based alternatives.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <!-- ES6 Version -->
+          <div>
+            <h4 class="font-semibold text-red-600 mb-3">❌ ES6 (Promises & Async/Await)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// Promises
+function fetchUserData(id) {
+  return fetch(`/api/users/${id}`)
+    .then(response => response.json())
+    .catch(error => {
+      console.error('Error:', error);
+      throw error;
+    });
+}
+
+// Async/Await
+async function getUserProfile(id) {
+  try {
+    const user = await fetchUserData(id);
+    const posts = await fetch(`/api/users/${id}/posts`);
+    return { user, posts: await posts.json() };
+  } catch (error) {
+    console.error('Failed to load profile:', error);
+  }
+}</code></pre>
+            </div>
+          </div>
+          
+          <!-- ES5 Version -->
+          <div>
+            <h4 class="font-semibold text-green-600 mb-3">✅ ES5 (Callbacks)</h4>
+            <div class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+              <pre><code class="language-javascript">// Callback-based approach
+function fetchUserData(id, callback, errorCallback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/api/users/' + id);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      callback(JSON.parse(xhr.responseText));
+    } else {
+      errorCallback(new Error('Request failed'));
+    }
+  };
+  xhr.onerror = errorCallback;
+  xhr.send();
+}
+
+// Nested callbacks (callback hell)
+function getUserProfile(id, callback, errorCallback) {
+  fetchUserData(id, function(user) {
+    fetchUserPosts(id, function(posts) {
+      callback({ user: user, posts: posts });
+    }, errorCallback);
+  }, errorCallback);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-8">
+          <p class="text-orange-800 text-sm">
+            <strong>🚨 Complex Conversion:</strong> Promises and async/await require significant restructuring. Consider using a Promise polyfill for better ES5 compatibility.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">📊 Browser Support Summary</h2>
+        
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full border-collapse border border-gray-300">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">ES6 Feature</th>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">IE11</th>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">Old Android</th>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">Conversion Difficulty</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3">Arrow Functions</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-green-600">🟢 Easy</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-300 px-4 py-3">let/const</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-yellow-600">🟡 Medium</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3">Template Literals</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-green-600">🟢 Easy</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-300 px-4 py-3">Classes</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-yellow-600">🟡 Medium</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3">Promises</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">🔴 Hard</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-300 px-4 py-3">Modules (import/export)</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">❌ No</td>
+                <td class="border border-gray-300 px-4 py-3 text-red-600">🔴 Hard</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">🛠️ Solution: ES6-to-ES5 Conversion Tool</h2>
+        
+        <p class="mb-6">
+          Rather than manually converting each feature, you can use our free online ES6 to ES5 converter to automatically transform your modern JavaScript into legacy-compatible code.
+        </p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 mb-8">
+          <h3 class="font-bold text-blue-800 mb-4">🧰 Solution: Convert ES6 to ES5 Automatically</h3>
+          <p class="text-blue-700 mb-4">
+            Instead of rewriting your code manually, use our simple browser-based converter like 
+            👉 <strong><a href="/" class="underline hover:text-blue-900">ES6-to-ES5 Converter</a></strong>.
+          </p>
+          
+          <h4 class="font-semibold text-blue-800 mb-3">**Benefits:**</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <ul class="space-y-2 text-blue-700 text-sm">
+              <li>⚡ <strong>Converts instantly</strong>, right in your browser</li>
+              <li>🔒 <strong>No data stored</strong> or uploaded</li>
+              <li>🧩 <strong>Perfect for quick</strong> compatibility checks</li>
+            </ul>
+            <ul class="space-y-2 text-blue-700 text-sm">
+              <li>💻 <strong>Ideal for debugging</strong> older browser issues</li>
+              <li>🔧 <strong>Includes minification</strong> options</li>
+              <li>🚀 <strong>Instant results</strong> with copy functionality</li>
+            </ul>
+          </div>
+          
+          <p class="text-blue-700 text-sm mb-4">
+            This way, you can write <strong>modern JavaScript</strong> while ensuring your code runs everywhere — even in legacy systems.
+          </p>
+          
+          <div class="text-center">
+            <a href="/" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+              Try ES6 to ES5 Converter Now →
+            </a>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">🎯 Best Practices for Legacy Support</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-green-50 border border-green-200 p-6 rounded-lg">
+            <h4 class="font-semibold text-green-800 mb-3">✅ Do This</h4>
+            <ul class="text-sm text-green-700 space-y-2">
+              <li>• Always test converted code in target browsers</li>
+              <li>• Use feature detection before polyfills</li>
+              <li>• Keep original ES6 code for development</li>
+              <li>• Document browser support requirements</li>
+              <li>• Use progressive enhancement strategies</li>
+            </ul>
+          </div>
+          
+          <div class="bg-red-50 border border-red-200 p-6 rounded-lg">
+            <h4 class="font-semibold text-red-800 mb-3">❌ Avoid This</h4>
+            <ul class="text-sm text-red-700 space-y-2">
+              <li>• Don't assume all ES6 converts perfectly</li>
+              <li>• Don't ignore scoping differences with let/const</li>
+              <li>• Don't forget about this binding in arrow functions</li>
+              <li>• Don't mix converted and unconverted code</li>
+              <li>• Don't skip testing in real legacy browsers</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">🔮 Looking Forward: When Can You Drop ES5?</h2>
+        
+        <p class="mb-6">
+          The decision to stop supporting ES5 depends on your audience and requirements. Here's what to consider:
+        </p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+          <h4 class="font-semibold text-gray-800 mb-4">Browser Usage Statistics (2025)</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between items-center">
+              <span>Internet Explorer 11:</span>
+              <span class="text-red-600 font-semibold">&lt; 1% globally</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>Chrome/Edge/Firefox (modern):</span>
+              <span class="text-green-600 font-semibold">&gt; 95% globally</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>Corporate environments:</span>
+              <span class="text-yellow-600 font-semibold">Varies significantly</span>
+            </div>
+          </div>
+          
+          <p class="text-gray-600 text-sm mt-4">
+            <strong>💡 Recommendation:</strong> For most new projects in 2025, you can safely use ES6+. For existing enterprise applications or maximum compatibility, continue using ES5 conversion.
+          </p>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">🔍 Final Thoughts</h2>
+        
+        <p class="mb-6">
+          ES6 brought a wave of improvements to JavaScript, making it cleaner and more powerful. But older browsers still lag behind. Understanding what's unsupported helps you decide <strong>when to transpile your code</strong> and <strong>how to maintain cross-browser compatibility</strong>.
+        </p>
+
+        <p class="mb-6">
+          In 2025, many developers still rely on ES5 builds for maximum coverage. The features we covered — arrow functions, let/const, template literals, classes, and promises — are the most common compatibility roadblocks you'll face.
+        </p>
+
+        <p class="mb-8">
+          <strong>The good news?</strong> You don't have to choose between modern development and legacy support. Write beautiful ES6 code, then use tools like <a href="/" class="text-blue-600 hover:text-blue-800 underline font-medium">ES6-to-ES5 Converter</a> to make that process effortless.
+        </p>
+
+        <div class="bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg p-8 text-center mb-8">
+          <h3 class="text-2xl font-bold mb-4">Ready to Convert Your ES6 Code?</h3>
+          <p class="mb-6 text-green-100">Transform your modern JavaScript to legacy-compatible code in seconds with our free converter.</p>
+          <a href="/" class="inline-block bg-white text-green-600 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">
+            Convert ES6 to ES5 Now →
+          </a>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- Related Articles -->
+    <section class="mt-16 mb-12">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6">Related Articles</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+          <h4 class="font-semibold text-blue-600 mb-2 hover:text-blue-800">
+            <a href="/blog/what-is-es6-and-why-convert-to-es5/">What is ES6 and Why Convert to ES5?</a>
+          </h4>
+          <p class="text-gray-600 text-sm">Learn the fundamental differences between ES6 and ES5, and understand when conversion is necessary.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+          <h4 class="font-semibold text-blue-600 mb-2 hover:text-blue-800">
+            <a href="/blog/how-to-convert-es6-to-es5/">How to Convert ES6 Code to ES5 (Step-by-Step Guide)</a>
+          </h4>
+          <p class="text-gray-600 text-sm">Complete step-by-step tutorial on converting ES6 JavaScript code to ES5 using our online tool.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-4">© 2025 <a href="https://github.com/Selman-S" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200">Selman Sahbudak</a></p>
+      <div class="flex justify-center space-x-6 text-sm">
+        <a href="/" class="text-gray-300 hover:text-white">Converter Tool</a>
+        <a href="/blog/" class="text-gray-300 hover:text-white">Blog</a>
+        <a href="https://github.com/Selman-S" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
