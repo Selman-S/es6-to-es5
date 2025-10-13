@@ -727,5 +727,121 @@ function getUserProfile(id, callback, errorCallback) {
     </div>
   </footer>
 
+  <!-- Blog Analytics Tracking -->
+  <script>
+    // Blog-specific GA4 tracking
+    document.addEventListener('DOMContentLoaded', function() {
+      const blogPostTitle = 'Common ES6 Features Not Supported in Older Browsers';
+      const blogCategory = 'Compatibility Guide';
+      const startTime = Date.now();
+      
+      // Track blog post view
+      gtag('event', 'blog_post_view', {
+        blog_title: blogPostTitle,
+        blog_category: blogCategory,
+        blog_url: window.location.pathname,
+        content_group1: 'Blog Content',
+        custom_parameter_1: 'blog_engagement'
+      });
+
+      // Reading progress tracking
+      let readingMilestones = {
+        25: false,
+        50: false, 
+        75: false,
+        100: false
+      };
+
+      function trackReadingProgress() {
+        const article = document.querySelector('article');
+        if (!article) return;
+
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const scrollTop = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        
+        const scrollPercentage = Math.round(
+          ((scrollTop + windowHeight - articleTop) / articleHeight) * 100
+        );
+
+        // Track reading milestones
+        Object.keys(readingMilestones).forEach(milestone => {
+          if (scrollPercentage >= milestone && !readingMilestones[milestone]) {
+            readingMilestones[milestone] = true;
+            
+            gtag('event', 'blog_reading_progress', {
+              blog_title: blogPostTitle,
+              reading_percentage: milestone,
+              time_to_milestone: Math.round((Date.now() - startTime) / 1000),
+              blog_category: blogCategory
+            });
+          }
+        });
+      }
+
+      // Track tool conversion clicks
+      function trackToolConversion(element, linkType) {
+        gtag('event', 'blog_to_tool_conversion', {
+          blog_title: blogPostTitle,
+          conversion_type: linkType,
+          blog_category: blogCategory,
+          link_text: element.textContent.trim(),
+          link_url: element.href
+        });
+      }
+
+      // Add click tracking to tool links
+      document.querySelectorAll('a[href="/"]').forEach(link => {
+        link.addEventListener('click', function() {
+          const linkText = this.textContent.toLowerCase();
+          let linkType = 'general';
+          
+          if (linkText.includes('converter') || linkText.includes('tool')) {
+            linkType = 'tool_cta';
+          } else if (linkText.includes('try') || linkText.includes('start')) {
+            linkType = 'action_cta';
+          }
+          
+          trackToolConversion(this, linkType);
+        });
+      });
+
+      // Track internal blog links
+      document.querySelectorAll('a[href*="/blog/"]').forEach(link => {
+        link.addEventListener('click', function() {
+          gtag('event', 'internal_blog_click', {
+            source_blog: blogPostTitle,
+            target_blog: this.textContent.trim(),
+            link_url: this.href
+          });
+        });
+      });
+
+      // Scroll tracking
+      let isScrolling = false;
+      window.addEventListener('scroll', function() {
+        if (!isScrolling) {
+          isScrolling = true;
+          setTimeout(() => {
+            trackReadingProgress();
+            isScrolling = false;
+          }, 100);
+        }
+      });
+
+      // Track time on page when user leaves
+      window.addEventListener('beforeunload', function() {
+        const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+        
+        gtag('event', 'blog_engagement_time', {
+          blog_title: blogPostTitle,
+          engagement_time: timeOnPage,
+          blog_category: blogCategory
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
