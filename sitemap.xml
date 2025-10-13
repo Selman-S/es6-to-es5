@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Main converter page -->
   <url>
     <loc>https://es6-to-es5.vercel.app/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -12,4 +14,21 @@
       <image:caption>Convert ES6/ES2015+ JavaScript code to ES5 for browser compatibility</image:caption>
     </image:image>
   </url>
+  
+  <!-- Blog homepage -->
+  <url>
+    <loc>https://es6-to-es5.vercel.app/blog/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog articles -->
+  <url>
+    <loc>https://es6-to-es5.vercel.app/blog/what-is-es6-and-why-convert-to-es5/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
 </urlset>

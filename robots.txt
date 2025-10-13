@@ -7,10 +7,11 @@ Sitemap: https://es6-to-es5.vercel.app/sitemap.xml
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Allow all CSS and JS files
+# Allow all important directories
 Allow: /css/
 Allow: /js/
 Allow: /assets/
+Allow: /blog/
 
 # Block unnecessary files
 Disallow: /examcode.js
@@ -20,3 +21,7 @@ Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /README.md
 Disallow: /PROJECT_STRUCTURE.md
+
+# Additional SEO instructions
+# Blog content is fully allowed for indexing
+Allow: /blog/*
