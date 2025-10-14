@@ -70,13 +70,16 @@ class ThemeSwitcher {
   async switchTheme(themeName, saveToStorage = true) {
     this.currentTheme = themeName;
 
-    // Update CSS file using ID
+    // Update CSS file using ID - preserve relative path
     const cssLink = document.getElementById('theme-stylesheet');
     if (cssLink) {
+      const currentHref = cssLink.href;
+      const cssPath = currentHref.substring(0, currentHref.lastIndexOf('/') + 1);
+      
       if (themeName === 'reddit') {
-        cssLink.href = './css/reddit-theme.css';
+        cssLink.href = cssPath + 'reddit-theme.css';
       } else {
-        cssLink.href = './css/main.css';
+        cssLink.href = cssPath + 'main.css';
       }
     }
 
