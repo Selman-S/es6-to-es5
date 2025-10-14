@@ -133,10 +133,16 @@
       <!-- Navigation Menu -->
       <nav class="container mx-auto flex justify-between items-center mb-4">
         <a href="/" class="text-xl font-semibold hover:text-blue-200 transition-colors">ES6→ES5</a>
-        <div class="flex space-x-6">
+        <div class="flex items-center space-x-6">
           <a href="/" class="hover:text-blue-200 transition-colors">🏠 Home</a>
           <a href="/blog/" class="hover:text-blue-200 transition-colors">📚 Blog</a>
           <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="hover:text-blue-200 transition-colors">💻 GitHub</a>
+          <!-- Theme Toggle -->
+          <div class="theme-toggle" id="themeToggle" role="button" aria-label="Toggle dark mode" tabindex="0">
+            <div class="theme-toggle-slider">
+              <span id="themeIcon">☀️</span>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -146,7 +152,7 @@
     
     <!-- Breadcrumbs -->
     <nav class="text-sm mb-8" aria-label="Breadcrumb">
-      <ol class="flex items-center space-x-2 text-gray-500">
+      <ol class="flex items-center space-x-2 breadcrumb-text">
         <li><a href="/" class="hover:text-blue-600">Home</a></li>
         <li class="flex items-center">
           <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,7 +164,7 @@
           <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
           </svg>
-          <span class="text-gray-800">Top 5 Online JavaScript Converters in 2025</span>
+          <span class="breadcrumb-current">Top 5 Online JavaScript Converters in 2025</span>
         </li>
       </ol>
     </nav>
@@ -751,5 +757,9 @@
     });
   </script>
 
+  <!-- Theme Toggle Script -->
+  <script>
+    function initializeTheme(){const e=localStorage.getItem("es6_converter_theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");setTheme(e)}function setTheme(e){document.documentElement.setAttribute("data-theme",e),localStorage.setItem("es6_converter_theme",e);const t=document.getElementById("themeIcon");t&&(t.textContent="dark"===e?"🌙":"☀️")}function toggleTheme(){const e=document.documentElement.getAttribute("data-theme");setTheme("dark"===e?"light":"dark")}document.addEventListener("DOMContentLoaded",function(){initializeTheme();const e=document.getElementById("themeToggle");e&&(e.addEventListener("click",toggleTheme),e.addEventListener("keypress",e=>{"Enter"!==e.key&&" "!==e.key||(e.preventDefault(),toggleTheme())}))});
+  </script>
 </body>
 </html>
