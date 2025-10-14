@@ -7,9 +7,32 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f5f7fa;
-  color: #1f2937;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1E1E1E;
+  color: #D4D4D4;
+  font-family: 'Consolas', 'Courier New', 'Monaco', monospace;
+}
+
+/* VS Code Scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1E1E1E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border: 3px solid #1E1E1E;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4E4E4E;
+}
+
+::-webkit-scrollbar-corner {
+  background: #1E1E1E;
 }
 
 html {
@@ -78,127 +101,176 @@ html {
   max-width: 100%;
   margin-top: 40px;
 }
-/* Button Variants with Gradients */
+/* VS Code Button Styles */
 .btn-convert {
-  background: linear-gradient(135deg, #08cd14 0%, #06d77a 100%);
+  background: #0E639C;
   position: relative;
   z-index: 1;
+  border-radius: 0;
+  transition: background 0.2s ease;
 }
 
 .btn-convert::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #06d77a 0%, #08cd14 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 12px;
-  z-index: -1;
+  display: none;
 }
 
 .btn-convert:hover::before {
-  opacity: 1;
+  display: none;
+}
+
+.btn-convert:hover {
+  background: #1177BB;
 }
 
 .btn-minify {
-  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  background: #4EC9B0;
+  border-radius: 0;
+  transition: background 0.2s ease;
 }
 
 .btn-minify::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 12px;
-  z-index: -1;
+  display: none;
 }
 
 .btn-minify:hover::before {
-  opacity: 1;
+  display: none;
+}
+
+.btn-minify:hover {
+  background: #5DD9C0;
 }
 
 .btn-deep-minify {
-  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  background: #CE9178;
+  border-radius: 0;
+  transition: background 0.2s ease;
 }
 
 .btn-deep-minify::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 12px;
-  z-index: -1;
+  display: none;
 }
 
 .btn-deep-minify:hover::before {
+  display: none;
+}
+
+.btn-deep-minify:hover {
+  background: #DEA188;
+}
+
+/* VS Code Editor Header & Tabs */
+.editor-header {
+  background: #252526;
+  border: 1px solid #3E3E42;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  padding: 0;
+}
+
+.editor-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  height: 100%;
+  background: #2D2D30;
+  border-right: 1px solid #3E3E42;
+  color: #969696;
+  font-size: 13px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.editor-tab.active {
+  background: #1E1E1E;
+  color: #FFFFFF;
+}
+
+.editor-tab:hover {
+  background: #1E1E1E;
+}
+
+.tab-icon {
+  width: 16px;
+  height: 16px;
+  color: #569CD6;
+}
+
+.tab-close {
+  opacity: 0;
+  font-size: 18px;
+  line-height: 1;
+  margin-left: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.editor-tab:hover .tab-close {
   opacity: 1;
 }
 
-/* Code Editor Containers */
+.tab-close:hover {
+  color: #FFFFFF;
+}
+
+/* VS Code Editor Containers */
 .code-input,
 .code-output {
   position: relative;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border: 2px solid #e5e7eb;
-  transition: all 0.3s ease;
+  background: #1E1E1E;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  border: 1px solid #3E3E42;
+  border-top: none;
+  transition: all 0.2s ease;
 }
 
 .code-input:hover,
 .code-output:hover {
-  border-color: #d1d5db;
+  border-color: #3E3E42;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Statistics Badge */
+/* VS Code Statistics Badge */
 .stats-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: #e5e7eb;
-  color: #4b5563;
-  padding: 6px 12px;
-  border-radius: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #007ACC;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 0;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   z-index: 10;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  box-shadow: none;
+  transition: all 0.2s ease;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  border-top: 1px solid #3E3E42;
 }
 
 .stats-badge:hover {
-  background: #d1d5db;
-  transform: scale(1.05);
+  background: #007ACC;
+  transform: none;
 }
 
 .compression-badge {
   position: absolute;
-  top: -32px;
-  right: 16px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
+  bottom: 0;
+  right: 0;
+  background: #4EC9B0;
+  color: #1E1E1E;
+  padding: 2px 8px;
+  border-radius: 0;
+  font-size: 11px;
+  font-weight: 600;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   animation: slideInRight 0.5s ease;
   z-index: 10;
@@ -273,28 +345,31 @@ html {
 
 .clear-code-btn {
   position: absolute;
-  top: 12px;
-  right: 16px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 14px;
-  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-  color: #fff;
+  top: 8px;
+  right: 12px;
+  border-radius: 0;
+  font-weight: 400;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #CCCCCC;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 8px 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border: none;
+  transition: all 0.2s ease;
+  padding: 6px 12px;
+  box-shadow: none;
+  border: 1px solid #3E3E42;
   z-index: 10;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .clear-code-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #569CD6;
+  transform: none;
+  box-shadow: none;
 }
 
 .clear-code-btn:active {
@@ -327,12 +402,12 @@ main {
 }
 
 .feature-card-modern {
-  background: #ffffff;
-  border-radius: 16px;
+  background: #252526;
+  border-radius: 0;
   padding: 2rem 1.5rem;
   text-align: center;
-  border: 2px solid transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
 }
@@ -372,44 +447,44 @@ main {
 .feature-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #CCCCCC;
   margin-bottom: 0.5rem;
 }
 
 .feature-description {
   font-size: 0.9375rem;
-  color: #6b7280;
+  color: #858585;
   font-weight: 400;
 }
 
 .feature-card-modern.feature-card-green {
-  border-color: #10b981;
-  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border-left: 2px solid #569CD6;
+  background: #252526;
 }
 
 .feature-card-modern.feature-card-green:hover {
-  border-color: #059669;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-left: 2px solid #569CD6;
+  background: #2D2D30;
 }
 
 .feature-card-modern.feature-card-blue {
-  border-color: #3b82f6;
-  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+  border-left: 2px solid #4EC9B0;
+  background: #252526;
 }
 
 .feature-card-modern.feature-card-blue:hover {
-  border-color: #2563eb;
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-left: 2px solid #4EC9B0;
+  background: #2D2D30;
 }
 
 .feature-card-modern.feature-card-purple {
-  border-color: #a855f7;
-  background: linear-gradient(135deg, #ffffff 0%, #faf5ff 100%);
+  border-left: 2px solid #CE9178;
+  background: #252526;
 }
 
 .feature-card-modern.feature-card-purple:hover {
-  border-color: #9333ea;
-  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  border-left: 2px solid #CE9178;
+  background: #2D2D30;
 }
 
 @keyframes fadeIn {
@@ -417,41 +492,28 @@ main {
   to { opacity: 1; }
 }
 
-/* Professional Header Styles */
+/* VS Code Professional Header */
 .professional-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  background: #2D2D30;
+  border-bottom: 1px solid #3E3E42;
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: none;
 }
 
-/* Modern Header with Colors */
+/* VS Code Header - Dark Theme */
 .modern-header {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(102, 126, 234, 0.2);
-  box-shadow: 0 4px 24px rgba(102, 126, 234, 0.08);
+  background: #2D2D30;
+  backdrop-filter: none;
+  border-bottom: 1px solid #3E3E42;
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
 
 .header-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(102, 126, 234, 0.05) 25%,
-    rgba(168, 85, 247, 0.05) 50%,
-    rgba(240, 147, 251, 0.05) 75%,
-    transparent 100%);
-  animation: headerGlowMove 15s ease-in-out infinite;
-  pointer-events: none;
+  display: none;
 }
 
 @keyframes headerGlowMove {
@@ -475,7 +537,7 @@ main {
 .header-logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #CCCCCC;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -492,35 +554,41 @@ main {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 16px 8px 8px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-  border: 1px solid rgba(102, 126, 234, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 16px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  transition: all 0.2s ease;
 }
 
 .modern-logo:hover {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  border-color: rgba(102, 126, 234, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  transform: none;
+  box-shadow: none;
 }
 
 .logo-icon-wrapper {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: none;
+  transition: all 0.2s ease;
 }
 
 .modern-logo:hover .logo-icon-wrapper {
-  transform: rotate(5deg) scale(1.05);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  transform: none;
+  box-shadow: none;
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+  color: #569CD6;
+  stroke-width: 2;
 }
 
 .logo-icon {
@@ -543,26 +611,28 @@ main {
 }
 
 .gradient-accent {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
+  color: #569CD6;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  font-weight: 600;
+  font-family: 'Consolas', 'Courier New', monospace;
 }
 
 .gradient-text-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 800;
+  color: #4EC9B0;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  font-weight: 700;
+  font-family: 'Consolas', 'Courier New', monospace;
 }
 
 .modern-logo:hover .gradient-text-header {
-  background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #4EC9B0;
+  background: none;
 }
 
 .logo-text {
@@ -576,7 +646,7 @@ main {
 }
 
 .header-link {
-  color: #6b7280;
+  color: #858585;
   text-decoration: none;
   font-size: 0.9375rem;
   font-weight: 500;
@@ -607,24 +677,26 @@ main {
 .modern-link {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 10px;
-  color: #4b5563;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 0;
+  color: #CCCCCC;
+  font-weight: 400;
+  font-size: 13px;
+  transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .modern-link::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: rgba(255, 255, 255, 0.1);
   opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 10px;
+  transition: opacity 0.2s ease;
+  border-radius: 0;
 }
 
 .modern-link:hover::before {
@@ -636,15 +708,17 @@ main {
 }
 
 .modern-link:hover {
-  color: #667eea;
-  transform: translateY(-2px);
+  color: #FFFFFF;
+  transform: none;
 }
 
 .modern-link.active {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  color: #667eea;
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: none;
+  border-left: 2px solid #569CD6;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .link-icon {
@@ -667,14 +741,14 @@ main {
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #CCCCCC;
   margin-bottom: 0.75rem;
   letter-spacing: -0.5px;
 }
 
 .page-subtitle {
   font-size: 1.125rem;
-  color: #6b7280;
+  color: #858585;
   font-weight: 400;
   max-width: 600px;
   margin: 0 auto;
@@ -690,14 +764,14 @@ main {
 .page-title-compact {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #CCCCCC;
   margin-bottom: 0.5rem;
   letter-spacing: -0.3px;
 }
 
 .page-subtitle-compact {
   font-size: 0.9375rem;
-  color: #6b7280;
+  color: #858585;
   font-weight: 400;
   max-width: 500px;
   margin: 0 auto;
@@ -833,9 +907,9 @@ footer {
   margin-top: 40px;
   text-align: center;
   font-size: 14px;
-  color: #4b5563;
+  color: #858585;
   font-weight: 500;
-  background-color: #e5e7eb;
+  background-color: #3E3E42;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -875,7 +949,7 @@ footer {
 
 .progress-bar {
   height: 10px;
-  background-color: #fff;
+  background-color: #252526;
   margin-top: 10px;
   width: 100%;
   border-radius:3px;
@@ -898,42 +972,44 @@ footer {
 
 
 
-/* CodeMirror Theme Customization */
+/* VS Code Dark Theme for CodeMirror */
 .CodeMirror {
-  background: #ffffff !important;
-  color: #1f2937 !important;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  background: #1E1E1E !important;
+  color: #D4D4D4 !important;
+  border-radius: 0;
+  border: none;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
   font-size: 14px;
-  line-height: 1.6;
-  transition: all 0.3s ease;
+  line-height: 1.5;
+  transition: all 0.2s ease;
 }
 
 .CodeMirror-gutters {
-  background: #e5e7eb !important;
-  border-right: 1px solid #e5e7eb !important;
+  background: #1E1E1E !important;
+  border-right: 1px solid #3E3E42 !important;
+  padding-right: 8px;
 }
 
 .CodeMirror-linenumber {
-  color: #6b7280 !important;
+  color: #858585 !important;
+  padding: 0 5px 0 5px;
 }
 
 .CodeMirror-cursor {
-  border-left: 2px solid #293CA6 !important;
+  border-left: 2px solid #569CD6 !important;
 }
 
 .CodeMirror-selected {
-  background: #e5e7eb !important;
+  background: rgba(86, 156, 214, 0.2) !important;
 }
 
 [data-theme="dark"] .CodeMirror {
-  background: #1e293b !important;
+  background: #1E1E1E !important;
 }
 
 [data-theme="dark"] .CodeMirror-gutters {
-  background: #0f172a !important;
-  border-right-color: #334155 !important;
+  background: #1E1E1E !important;
+  border-right-color: #3E3E42 !important;
 }
 
 /* Responsive Design */
@@ -1017,8 +1093,8 @@ footer {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  background-color: #e5e7eb;
-  color: #1f2937;
+  background-color: #3E3E42;
+  color: #CCCCCC;
   text-align: center;
   border-radius: 8px;
   padding: 8px 12px;
@@ -1032,7 +1108,7 @@ footer {
   white-space: nowrap;
   font-size: 13px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e5e7eb;
+  border: 1px solid #3E3E42;
 }
 
 .tooltip .tooltiptext::after {
@@ -1058,9 +1134,9 @@ footer {
   flex-wrap: wrap;
   margin-bottom: 16px;
   padding: 12px;
-  background: #ffffff;
+  background: #252526;
   border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #3E3E42;
 }
 
 .sample-templates-compact {
@@ -1069,9 +1145,9 @@ footer {
   flex-wrap: wrap;
   margin-bottom: 1rem;
   padding: 10px 14px;
-  background: #f9fafb;
+  background: #2D2D30;
   border-radius: 10px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #3E3E42;
   align-items: center;
   justify-content: center;
 }
@@ -1080,15 +1156,15 @@ footer {
 .sample-templates-below {
   margin-top: 2.5rem;
   padding: 2rem 1.5rem;
-  background: #ffffff;
+  background: #252526;
   border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #3E3E42;
 }
 
 .sample-templates-title {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #CCCCCC;
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -1103,8 +1179,8 @@ footer {
 
 .template-btn {
   padding: 7px 14px;
-  background: #ffffff;
-  color: #1f2937;
+  background: #252526;
+  color: #CCCCCC;
   border: 1px solid #d1d5db;
   border-radius: 7px;
   cursor: pointer;
@@ -1140,7 +1216,7 @@ footer {
 .loading-spinner {
   width: 48px;
   height: 48px;
-  border: 4px solid #e5e7eb;
+  border: 2px solid #3E3E42;
   border-top-color: #293CA6;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
@@ -1150,8 +1226,8 @@ footer {
 .feature-card {
   padding: 16px;
   border-radius: 12px;
-  background: #ffffff;
-  border: 2px solid #e5e7eb;
+  background: #252526;
+  border: 1px solid #3E3E42;
   transition: all 0.3s ease;
 }
 
@@ -1161,11 +1237,11 @@ footer {
 }
 
 .feature-card h3 {
-  color: #1f2937;
+  color: #CCCCCC;
 }
 
 .feature-card p {
-  color: #4b5563;
+  color: #858585;
 }
 
 .feature-card-green {
@@ -1288,29 +1364,29 @@ footer {
 }
 
 .feature-tag-gray {
-  background: #e5e7eb;
-  color: #1f2937;
-  border-color: #e5e7eb;
+  background: #3E3E42;
+  color: #CCCCCC;
+  border-color: #3E3E42;
 }
 
 /* SEO Section */
 .seo-section {
-  background: #f9fafb;
+  background: #2D2D30;
   padding: 48px 0;
   margin-top: 48px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #3E3E42;
 }
 
 /* Blog Section */
 .blog-section {
-  background: #f5f7fa;
+  background: #1E1E1E;
   padding: 48px 0;
   transition: background-color 0.3s ease;
 }
 
 .blog-card {
-  background: #ffffff;
-  border: 2px solid #e5e7eb;
+  background: #252526;
+  border: 1px solid #3E3E42;
   border-radius: 16px;
   padding: 32px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -1320,7 +1396,7 @@ footer {
 .blog-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border-color: #d1d5db;
+  border-color: #3E3E42;
 }
 
 .blog-tag {
@@ -1373,7 +1449,7 @@ footer {
 
 /* Blog Article Styles - Dark Mode Support */
 article.prose {
-  color: #1f2937;
+  color: #CCCCCC;
 }
 
 .prose h1,
@@ -1386,11 +1462,11 @@ article.prose {
 }
 
 .prose p {
-  color: #4b5563;
+  color: #858585;
 }
 
 .prose strong {
-  color: #1f2937;
+  color: #CCCCCC;
 }
 
 .prose a {
@@ -1403,21 +1479,21 @@ article.prose {
 
 /* Breadcrumb Dark Mode */
 .breadcrumb-text {
-  color: #6b7280;
+  color: #858585;
 }
 
 .breadcrumb-current {
-  color: #1f2937;
+  color: #CCCCCC;
 }
 
 /* Article Meta Info */
 .article-meta {
-  color: #4b5563;
+  color: #858585;
 }
 
 /* Article Lead Text */
 .article-lead {
-  color: #4b5563;
+  color: #858585;
 }
 
 /* Info Boxes */
@@ -1572,7 +1648,7 @@ a[href="/blog/"] i {
 
 /* ==================== MODERN DESIGN SYSTEM ==================== */
 
-/* Animated Background with Gradient Orbs */
+/* VS Code Dark Background */
 .animated-background {
   position: fixed;
   top: 0;
@@ -1581,7 +1657,7 @@ a[href="/blog/"] i {
   height: 100vh;
   z-index: -1;
   overflow: hidden;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+  background: #1E1E1E;
 }
 
 .gradient-orb {
@@ -1594,31 +1670,34 @@ a[href="/blog/"] i {
 }
 
 .orb-1 {
-  width: 500px;
-  height: 500px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  top: -250px;
-  left: -250px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(86, 156, 214, 0.1) 0%, transparent 70%);
+  top: -300px;
+  left: -300px;
   animation-delay: 0s;
+  filter: blur(100px);
 }
 
 .orb-2 {
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  top: 30%;
-  right: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(78, 201, 176, 0.08) 0%, transparent 70%);
+  top: 40%;
+  right: -250px;
   animation-delay: 5s;
+  filter: blur(100px);
 }
 
 .orb-3 {
-  width: 350px;
-  height: 350px;
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  bottom: -175px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(206, 145, 120, 0.06) 0%, transparent 70%);
+  bottom: -225px;
   left: 50%;
   transform: translateX(-50%);
   animation-delay: 10s;
+  filter: blur(100px);
 }
 
 @keyframes float {
@@ -1645,35 +1724,41 @@ a[href="/blog/"] i {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  border: 1px solid rgba(102, 126, 234, 0.3);
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-size: 0.8125rem;
+  background: rgba(86, 156, 214, 0.15);
+  border: 1px solid rgba(86, 156, 214, 0.3);
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-size: 11px;
   font-weight: 600;
-  color: #667eea;
+  color: #569CD6;
   margin-bottom: 1rem;
   animation: slideDown 0.6s ease-out;
-  backdrop-filter: blur(10px);
+  backdrop-filter: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .hero-title {
   font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.1;
+  font-weight: 600;
+  line-height: 1.2;
   margin-bottom: 1rem;
   animation: slideUp 0.8s ease-out;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
+  font-family: 'Consolas', 'Courier New', monospace;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #4EC9B0;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
   display: inline-block;
-  animation: gradientShift 5s ease infinite;
-  background-size: 200% auto;
+  animation: none;
+  background-size: auto;
+  text-shadow: 0 0 20px rgba(78, 201, 176, 0.3);
 }
 
 @keyframes gradientShift {
@@ -1687,17 +1772,18 @@ a[href="/blog/"] i {
 
 .hero-subtitle-inline {
   display: block;
-  color: #1f2937;
+  color: #569CD6;
   margin-top: 0.5rem;
 }
 
 .hero-description {
-  font-size: 1.125rem;
-  color: #4b5563;
+  font-size: 14px;
+  color: #9CDCFE;
   max-width: 650px;
   margin: 0 auto 1.5rem;
   line-height: 1.6;
   animation: fadeIn 1s ease-out;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .hero-features {
@@ -1706,25 +1792,26 @@ a[href="/blog/"] i {
   justify-content: center;
   gap: 0.875rem;
   margin-top: 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #667eea;
+  font-size: 12px;
+  font-weight: 400;
+  color: #CE9178;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .separator {
-  color: #d1d5db;
+  color: #3E3E42;
 }
 
 .hero-stats {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 1.25rem 1.5rem;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 1rem 1.5rem;
+  background: #252526;
+  backdrop-filter: none;
+  border-radius: 0;
+  border: 1px solid #3E3E42;
+  box-shadow: none;
   max-width: 500px;
   margin: 0 auto;
   animation: scaleIn 1s ease-out;
@@ -1735,25 +1822,25 @@ a[href="/blog/"] i {
 }
 
 .stat-number {
-  font-size: 1.75rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4EC9B0;
+  background: none;
   line-height: 1;
   margin-bottom: 0.375rem;
+  font-family: 'Consolas', monospace;
 }
 
 .stat-label {
-  font-size: 0.75rem;
-  color: #6b7280;
-  font-weight: 600;
+  font-size: 11px;
+  color: #858585;
+  font-weight: 400;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .stat-divider {
   width: 1px;
-  background: linear-gradient(to bottom, transparent, #d1d5db, transparent);
+  background: #3E3E42;
 }
 
 /* Animations */
@@ -1799,14 +1886,14 @@ a[href="/blog/"] i {
   }
 }
 
-/* Glassmorphism Container */
+/* VS Code Container */
 .glass-container {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  background: #252526;
+  backdrop-filter: none;
+  border-radius: 0;
+  border: 1px solid #3E3E42;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 0;
   position: relative;
   overflow: visible;
   margin-top: 2rem;
@@ -1814,78 +1901,66 @@ a[href="/blog/"] i {
 
 .modern-card {
   position: relative;
-  background: #ffffff;
-  border: 2px solid transparent;
+  background: #1E1E1E;
+  border: none;
   background-clip: padding-box;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
 }
 
 .modern-card::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-  border-radius: 16px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: none;
 }
 
 .modern-card:hover::before {
-  opacity: 1;
+  display: none;
 }
 
 .section-label {
-  color: #1f2937 !important;
+  color: #CCCCCC !important;
   display: flex;
   align-items: center;
   gap: 8px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* Modern 3D Feature Cards */
+/* VS Code Feature Cards */
 .modern-cards-grid {
-  perspective: 1000px;
+  perspective: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: #3E3E42;
+  border: 1px solid #3E3E42;
 }
 
 .feature-card-3d {
   position: relative;
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 1.75rem 1.5rem;
+  background: #252526;
+  border-radius: 0;
+  padding: 2rem 1.5rem;
   text-align: center;
-  border: 1px solid #e5e7eb;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
+  border: none;
+  transition: all 0.2s ease;
+  transform-style: flat;
   cursor: pointer;
   overflow: hidden;
 }
 
 .card-glow {
-  position: absolute;
-  inset: -100px;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-  filter: blur(60px);
+  display: none;
 }
 
-.green-glow {
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%);
-}
-
-.blue-glow {
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
-}
-
-.purple-glow {
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%);
+.green-glow, .blue-glow, .purple-glow {
+  display: none;
 }
 
 .feature-card-3d:hover {
-  transform: translateY(-12px) rotateX(2deg);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  transform: none;
+  box-shadow: none;
+  background: #2D2D30;
+  border-left: 2px solid #569CD6;
   border-color: transparent;
 }
 
@@ -1900,34 +1975,23 @@ a[href="/blog/"] i {
 }
 
 .icon-circle {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
+  background: transparent;
 }
 
 .icon-circle::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  padding: 4px;
-  background: linear-gradient(135deg, currentColor, transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: none;
 }
 
 .feature-card-3d:hover .icon-circle::before {
-  opacity: 1;
-  animation: rotate 3s linear infinite;
+  display: none;
 }
 
 @keyframes rotate {
@@ -1937,43 +2001,45 @@ a[href="/blog/"] i {
 }
 
 .icon-circle.green {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
-  color: #10b981;
+  background: transparent;
+  color: #569CD6;
 }
 
 .icon-circle.blue {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
-  color: #3b82f6;
+  background: transparent;
+  color: #4EC9B0;
 }
 
 .icon-circle.purple {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
-  color: #a855f7;
+  background: transparent;
+  color: #CE9178;
 }
 
 .feature-card-3d:hover .icon-circle {
-  transform: scale(1.1) rotateY(10deg);
+  transform: none;
 }
 
 .feature-badge {
   display: inline-block;
   margin-top: 1rem;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s ease;
+  background: rgba(86, 156, 214, 0.15);
+  border: 1px solid rgba(86, 156, 214, 0.3);
+  color: #569CD6;
+  opacity: 1;
+  transform: none;
+  transition: all 0.2s ease;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .feature-card-3d:hover .feature-badge {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 /* Scroll Animations */

@@ -266,10 +266,13 @@
 
     <section class="converter-section flex glass-container" aria-label="JavaScript Code Converter Tool">
       <div class="flex-1">
-        <h4 class="text-lg mb-2 font-semibold section-label">
-          <i data-lucide="file-input" class="inline-icon-sm"></i>
-          ES6/ES2015+ Input
-        </h4>
+        <div class="editor-header">
+          <div class="editor-tab active">
+            <i data-lucide="file-code" class="tab-icon"></i>
+            <span>input.js</span>
+            <div class="tab-close">×</div>
+          </div>
+        </div>
         <div class="code-input modern-card">
           <div class="stats-badge" id="inputStats">
             <i data-lucide="file-text" class="badge-icon"></i>
@@ -317,10 +320,13 @@ class User {
         </button>
       </div>
       <div class="flex-1">
-        <h4 class="text-lg mb-2 font-semibold section-label">
-          <i data-lucide="file-output" class="inline-icon-sm"></i>
-          ES5 Output
-        </h4>
+        <div class="editor-header">
+          <div class="editor-tab active">
+            <i data-lucide="file-code" class="tab-icon"></i>
+            <span>output.js</span>
+            <div class="tab-close">×</div>
+          </div>
+        </div>
         <div class="code-output modern-card">
           <div class="stats-badge" id="outputStats">
             <i data-lucide="file-code" class="badge-icon"></i>
