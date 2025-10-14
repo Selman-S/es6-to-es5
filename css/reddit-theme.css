@@ -2070,7 +2070,7 @@ a[href="/blog/"] i {
   }
 }
 
-/* Theme Selector Styles - Shadcn/UI Inspired */
+/* Theme Selector Styles - Reddit Theme (Light Header) */
 .theme-selector {
   display: inline-flex;
   align-items: center;
@@ -2083,9 +2083,9 @@ a[href="/blog/"] i {
   align-items: center;
   justify-content: space-between;
   white-space: nowrap;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(41, 60, 166, 0.08);
+  color: #293CA6;
+  border: 1px solid rgba(41, 60, 166, 0.2);
   border-radius: 6px;
   padding: 6px 10px;
   font-size: 13px;
@@ -2095,11 +2095,9 @@ a[href="/blog/"] i {
   transition: all 0.15s ease;
   outline: none;
   appearance: none;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   min-width: 120px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23293CA6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 6px center;
   background-size: 16px;
@@ -2107,23 +2105,23 @@ a[href="/blog/"] i {
 }
 
 .theme-select:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(41, 60, 166, 0.12);
+  border-color: rgba(41, 60, 166, 0.3);
 }
 
 .theme-select:focus {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+  background: rgba(41, 60, 166, 0.15);
+  border-color: rgba(41, 60, 166, 0.4);
+  box-shadow: 0 0 0 2px rgba(41, 60, 166, 0.1);
 }
 
 .theme-select:active {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(41, 60, 166, 0.1);
 }
 
 .theme-select option {
-  background: #1e293b;
-  color: white;
+  background: #ffffff;
+  color: #293CA6;
   padding: 10px 12px;
   font-weight: 500;
   font-size: 13px;
@@ -2131,11 +2129,11 @@ a[href="/blog/"] i {
 }
 
 .theme-select option:hover {
-  background: #334155;
+  background: #f0f4ff;
 }
 
 .theme-select option:checked {
-  background: #293CA6;
+  background: #e0e7ff;
   font-weight: 600;
 }
 
