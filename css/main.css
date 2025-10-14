@@ -312,11 +312,11 @@ main {
 
 /* Header Improvements */
 header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   animation: slideDown 0.5s ease;
+}
+
+header nav {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(10px);
 }
 
