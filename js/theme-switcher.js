@@ -4,6 +4,7 @@ class ThemeSwitcher {
   constructor() {
     this.currentTheme = 'main';
     this.lucideLoaded = false;
+    this.globalListenerAttached = false;
   }
 
   // Initialize theme on page load
@@ -17,8 +18,11 @@ class ThemeSwitcher {
       await this.switchTheme('reddit', false);
     }
 
-    // Add event listener to dropdown
-    setTimeout(() => this.attachDropdownListener(), 100);
+    // Add event delegation listener to body (works even after DOM changes)
+    this.attachGlobalListener();
+    
+    // Also update dropdown value
+    setTimeout(() => this.updateDropdownValue(), 100);
   }
 
   // Load Lucide icons script dynamically
@@ -132,16 +136,8 @@ class ThemeSwitcher {
     // Update body data-theme attribute
     document.body.setAttribute('data-theme', themeName);
 
-    // Reattach dropdown listener after DOM update
-    setTimeout(() => this.attachDropdownListener(), 200);
-
-    // Update dropdown selection
-    setTimeout(() => {
-      const dropdown = document.getElementById('themeDropdown');
-      if (dropdown) {
-        dropdown.value = themeName;
-      }
-    }, 50);
+    // Update dropdown value after DOM changes
+    setTimeout(() => this.updateDropdownValue(), 100);
 
     // Save to localStorage
     if (saveToStorage) {
@@ -154,18 +150,30 @@ class ThemeSwitcher {
     }
   }
 
-  // Attach event listener to dropdown
-  attachDropdownListener() {
-    const dropdown = document.getElementById('themeDropdown');
-    if (dropdown) {
-      // Remove existing listener to avoid duplicates
-      dropdown.replaceWith(dropdown.cloneNode(true));
-      const newDropdown = document.getElementById('themeDropdown');
-      
-      newDropdown.addEventListener('change', (e) => {
+  // Attach global event listener using event delegation
+  attachGlobalListener() {
+    if (this.globalListenerAttached) return;
+    
+    document.body.addEventListener('change', (e) => {
+      if (e.target && e.target.id === 'themeDropdown') {
         this.switchTheme(e.target.value);
-      });
+      }
+    });
+    
+    this.globalListenerAttached = true;
+  }
+  
+  // Update dropdown value to match current theme
+  updateDropdownValue() {
+    const dropdown = document.getElementById('themeDropdown');
+    if (dropdown && dropdown.value !== this.currentTheme) {
+      dropdown.value = this.currentTheme;
     }
+  }
+  
+  // Attach event listener to dropdown (legacy, kept for compatibility)
+  attachDropdownListener() {
+    this.updateDropdownValue();
   }
 }
 
