@@ -185,35 +185,92 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   
-  <header class="professional-header">
+  <header class="professional-header modern-header">
+    <div class="header-glow"></div>
     <div class="container mx-auto">
       <!-- Navigation Menu -->
       <nav class="header-nav">
-        <a href="/" class="header-logo">
-          <span class="logo-brackets">{</span>
-          <span class="logo-text">ES6→ES5</span>
-          <span class="logo-brackets">}</span>
+        <a href="/" class="header-logo modern-logo">
+          <div class="logo-icon-wrapper">
+            <i data-lucide="code-2" class="logo-icon"></i>
+          </div>
+          <div class="logo-text-wrapper">
+            <span class="logo-brackets gradient-accent">{</span>
+            <span class="logo-text gradient-text-header">ES6→ES5</span>
+            <span class="logo-brackets gradient-accent">}</span>
+          </div>
         </a>
         <div class="header-links">
-          <a href="/" class="header-link">Home</a>
-          <a href="/blog/" class="header-link">Blog</a>
-          <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="header-link">GitHub</a>
+          <a href="/" class="header-link modern-link active">
+            <i data-lucide="home" class="link-icon"></i>
+            <span>Home</span>
+          </a>
+          <a href="/blog/" class="header-link modern-link">
+            <i data-lucide="book-open" class="link-icon"></i>
+            <span>Blog</span>
+          </a>
+          <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="header-link modern-link">
+            <i data-lucide="github" class="link-icon"></i>
+            <span>GitHub</span>
+          </a>
         </div>
       </nav>
     </div>
 </header>
 
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
   <main class="Page container mx-auto">
-    <!-- Page Title Section -->
-    <section class="page-hero-compact">
-      <h1 class="page-title-compact">ES6 to ES5 Converter</h1>
-      <p class="page-subtitle-compact">Transform modern JavaScript to ES5 for maximum browser compatibility</p>
+    <!-- Modern Hero Section -->
+    <section class="modern-hero">
+      <div class="hero-badge">
+        <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+        <span>Free & Privacy-First JavaScript Tool</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="gradient-text">ES6 to ES5</span>
+        <span class="hero-subtitle-inline">Converter</span>
+      </h1>
+      <p class="hero-description">
+        Transform modern JavaScript to ES5 instantly with our powerful transpiler.<br>
+        <span class="hero-features">
+          <i data-lucide="zap" class="inline-icon-sm"></i> Lightning Fast
+          <span class="separator">•</span>
+          <i data-lucide="shield" class="inline-icon-sm"></i> Browser Compatible
+          <span class="separator">•</span>
+          <i data-lucide="code-2" class="inline-icon-sm"></i> Production Ready
+        </span>
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Free Forever</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">0ms</div>
+          <div class="stat-label">Setup Time</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Conversions</div>
+        </div>
+      </div>
     </section>
 
-    <section class="converter-section flex" aria-label="JavaScript Code Converter Tool">
+    <section class="converter-section flex glass-container" aria-label="JavaScript Code Converter Tool">
       <div class="flex-1">
-        <h4 class="text-lg mb-2 font-semibold" style="color: #1f2937;">ES6/ES2015+ Input</h4>
-        <div class="code-input">
+        <h4 class="text-lg mb-2 font-semibold section-label">
+          <i data-lucide="file-input" class="inline-icon-sm"></i>
+          ES6/ES2015+ Input
+        </h4>
+        <div class="code-input modern-card">
           <div class="stats-badge" id="inputStats">
             <i data-lucide="file-text" class="badge-icon"></i>
             <span id="inputCharCount">0 chars</span>
@@ -260,8 +317,11 @@ class User {
         </button>
       </div>
       <div class="flex-1">
-        <h4 class="text-lg mb-2 font-semibold" style="color: #1f2937;">ES5 Output</h4>
-        <div class="code-output">
+        <h4 class="text-lg mb-2 font-semibold section-label">
+          <i data-lucide="file-output" class="inline-icon-sm"></i>
+          ES5 Output
+        </h4>
+        <div class="code-output modern-card">
           <div class="stats-badge" id="outputStats">
             <i data-lucide="file-code" class="badge-icon"></i>
             <span id="outputCharCount">0 chars</span>
@@ -288,22 +348,40 @@ class User {
       </div>
     </section>
 
-    <!-- Features Overview -->
-    <section class="features-overview">
-      <div class="feature-card-modern feature-card-green">
-        <div class="feature-icon"><i data-lucide="repeat" style="width: 40px; height: 40px;"></i></div>
+    <!-- Features Overview - Modern 3D Cards -->
+    <section class="features-overview modern-cards-grid" data-animate>
+      <div class="feature-card-3d feature-card-green">
+        <div class="card-glow green-glow"></div>
+        <div class="feature-icon-wrapper">
+          <div class="icon-circle green">
+            <i data-lucide="repeat" style="width: 28px; height: 28px;"></i>
+          </div>
+        </div>
         <h3 class="feature-title">Transpile</h3>
-        <p class="feature-description">Convert ES6+ to ES5</p>
+        <p class="feature-description">Convert ES6+ to ES5 with Babel</p>
+        <div class="feature-badge">Real-time</div>
       </div>
-      <div class="feature-card-modern feature-card-blue">
-        <div class="feature-icon"><i data-lucide="minimize-2" style="width: 40px; height: 40px;"></i></div>
+      <div class="feature-card-3d feature-card-blue">
+        <div class="card-glow blue-glow"></div>
+        <div class="feature-icon-wrapper">
+          <div class="icon-circle blue">
+            <i data-lucide="minimize-2" style="width: 28px; height: 28px;"></i>
+          </div>
+        </div>
         <h3 class="feature-title">Minify</h3>
-        <p class="feature-description">Reduce file size</p>
+        <p class="feature-description">Reduce file size dramatically</p>
+        <div class="feature-badge">Optimized</div>
       </div>
-      <div class="feature-card-modern feature-card-purple">
-        <div class="feature-icon"><i data-lucide="zap" style="width: 40px; height: 40px;"></i></div>
+      <div class="feature-card-3d feature-card-purple">
+        <div class="card-glow purple-glow"></div>
+        <div class="feature-icon-wrapper">
+          <div class="icon-circle purple">
+            <i data-lucide="zap" style="width: 28px; height: 28px;"></i>
+          </div>
+        </div>
         <h3 class="feature-title">Deep Clean</h3>
-        <p class="feature-description">Ultimate compression</p>
+        <p class="feature-description">Ultimate compression mode</p>
+        <div class="feature-badge">Premium</div>
       </div>
     </section>
 
@@ -551,6 +629,52 @@ class User {
 <!-- Initialize Lucide Icons -->
 <script>
   lucide.createIcons();
+</script>
+
+<!-- Scroll Animations -->
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with data-animate
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('[data-animate], .feature-card-3d, .blog-card, .modern-card');
+    animatedElements.forEach(el => {
+      el.classList.add('will-animate');
+      observer.observe(el);
+    });
+
+    // Add stagger effect to feature cards
+    const featureCards = document.querySelectorAll('.feature-card-3d');
+    featureCards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+    });
+  });
+
+  // Parallax effect for gradient orbs
+  document.addEventListener('mousemove', (e) => {
+    const orbs = document.querySelectorAll('.gradient-orb');
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+    
+    orbs.forEach((orb, index) => {
+      const speed = (index + 1) * 20;
+      const x = (mouseX - 0.5) * speed;
+      const y = (mouseY - 0.5) * speed;
+      orb.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  });
 </script>
 </body>
 
