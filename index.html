@@ -195,9 +195,18 @@
       <nav class="container mx-auto flex justify-between items-center mb-4">
         <a href="/" class="text-xl font-semibold hover:text-blue-200 transition-colors">ES6→ES5</a>
         <div class="flex items-center space-x-6">
-          <a href="/" class="hover:text-blue-200 transition-colors">🏠 Home</a>
-          <a href="/blog/" class="hover:text-blue-200 transition-colors">📚 Blog</a>
-          <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="hover:text-blue-200 transition-colors">💻 GitHub</a>
+          <a href="/" class="hover:text-blue-200 transition-colors inline-flex items-center gap-1">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+            Home
+          </a>
+          <a href="/blog/" class="hover:text-blue-200 transition-colors inline-flex items-center gap-1">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            Blog
+          </a>
+          <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="hover:text-blue-200 transition-colors inline-flex items-center gap-1">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+            GitHub
+          </a>
         </div>
       </nav>
       
@@ -220,15 +229,24 @@
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
         <div class="feature-card feature-card-green">
-          <h3 class="font-semibold">🔄 Transpile</h3>
+          <h3 class="font-semibold inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            Transpile
+          </h3>
           <p class="text-sm">Convert ES6+ to ES5</p>
         </div>
         <div class="feature-card feature-card-blue">
-          <h3 class="font-semibold">🗜️ Minify</h3>
+          <h3 class="font-semibold inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+            Minify
+          </h3>
           <p class="text-sm">Reduce file size</p>
         </div>
         <div class="feature-card feature-card-purple">
-          <h3 class="font-semibold">⚡ Deep Clean</h3>
+          <h3 class="font-semibold inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            Deep Clean
+          </h3>
           <p class="text-sm">Ultimate compression</p>
         </div>
       </div>
@@ -237,20 +255,25 @@
     <!-- Sample Templates -->
     <div class="sample-templates">
       <span style="font-weight: 600; color: var(--text-secondary); font-size: 14px;">Quick Start:</span>
-      <button class="template-btn" onclick="loadTemplate('arrow')" title="Load arrow function example">
-        ➜ Arrow Function
+      <button class="template-btn inline-flex items-center gap-1" onclick="loadTemplate('arrow')" title="Load arrow function example">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        Arrow Function
       </button>
-      <button class="template-btn" onclick="loadTemplate('class')" title="Load class example">
-        🏛️ Class
+      <button class="template-btn inline-flex items-center gap-1" onclick="loadTemplate('class')" title="Load class example">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+        Class
       </button>
-      <button class="template-btn" onclick="loadTemplate('destructuring')" title="Load destructuring example">
-        📦 Destructuring
+      <button class="template-btn inline-flex items-center gap-1" onclick="loadTemplate('destructuring')" title="Load destructuring example">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+        Destructuring
       </button>
-      <button class="template-btn" onclick="loadTemplate('async')" title="Load async/await example">
-        ⏱️ Async/Await
+      <button class="template-btn inline-flex items-center gap-1" onclick="loadTemplate('async')" title="Load async/await example">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        Async/Await
       </button>
-      <button class="template-btn" onclick="loadTemplate('spread')" title="Load spread operator example">
-        ⚡ Spread
+      <button class="template-btn inline-flex items-center gap-1" onclick="loadTemplate('spread')" title="Load spread operator example">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        Spread
       </button>
     </div>
 
@@ -259,13 +282,14 @@
         <h4 class="text-2xl mb-2 font-semibold" style="color: var(--text-primary);">ES6/ES2015+ Input Code</h4>
         <div class="code-input">
           <div class="stats-badge" id="inputStats">
-            <span>📝</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
             <span id="inputCharCount">0 chars</span>
             <span>|</span>
             <span id="inputLineCount">0 lines</span>
           </div>
-          <button class="clear-code-btn tooltip" onclick="clearCodefunc()" aria-label="Clear input code">
-            🗑️ Clear
+          <button class="clear-code-btn tooltip inline-flex items-center gap-1" onclick="clearCodefunc()" aria-label="Clear input code">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            Clear
             <span class="tooltiptext">Clear all code (Ctrl+Shift+X)</span>
           </button>
           <textarea id="text1" 
@@ -287,19 +311,28 @@ class User {
         <button id="convertBtn" class="custom-btn btn-convert tooltip" 
                 aria-label="Convert ES6 code to ES5 compatible JavaScript">
           <div class="spinner"></div>
-          <span>🔄 Convert</span>
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            Convert
+          </span>
           <span class="tooltiptext">Convert to ES5 (Ctrl+Enter)</span>
         </button>
         <button id="minifyBtn" class="custom-btn btn-minify tooltip" 
                 aria-label="Convert to ES5 and minify the code">
           <div class="spinner"></div>
-          <span>🗜️ Minify</span>
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+            Minify
+          </span>
           <span class="tooltiptext">Convert & Minify (Ctrl+Shift+M)</span>
         </button>
         <button id="deepMinifyBtn" class="custom-btn btn-deep-minify tooltip" 
                 aria-label="Convert to ES5 and apply deep minification with maximum compression">
           <div class="spinner"></div>
-          <span>⚡ Deep Minify</span>
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            Deep Minify
+          </span>
           <span class="tooltiptext">Maximum Compression (Ctrl+Shift+D)</span>
         </button>
       </div>
@@ -307,20 +340,23 @@ class User {
         <h4 class="text-2xl mb-2 font-semibold" style="color: var(--text-primary);">ES5 Compatible Output</h4>
         <div class="code-output">
           <div class="stats-badge" id="outputStats">
-            <span>📄</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
             <span id="outputCharCount">0 chars</span>
             <span>|</span>
             <span id="outputLineCount">0 lines</span>
           </div>
-          <div class="compression-badge" id="compressionBadge" style="display: none;">
-            💾 <span id="compressionRatio">0%</span> smaller
+          <div class="compression-badge inline-flex items-center gap-1" id="compressionBadge" style="display: none;">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
+            <span id="compressionRatio">0%</span> smaller
           </div>
-          <button class="download-code-btn tooltip" onclick="downloadCode()" aria-label="Download converted code">
-            ⬇️ Download
+          <button class="download-code-btn tooltip inline-flex items-center gap-1" onclick="downloadCode()" aria-label="Download converted code">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download
             <span class="tooltiptext">Download as .js file</span>
           </button>
-          <button class="copy-code-btn tooltip" onclick="copyCodefunc()" aria-label="Copy converted code to clipboard">
-            📋 Copy
+          <button class="copy-code-btn tooltip inline-flex items-center gap-1" onclick="copyCodefunc()" aria-label="Copy converted code to clipboard">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            Copy
             <span class="tooltiptext">Copy to clipboard (Ctrl+Shift+C)</span>
           </button>
           <textarea id="text2" 
@@ -344,22 +380,30 @@ class User {
       <h2 class="text-3xl font-bold text-center mb-8" style="color: var(--text-primary);">Why Use Our ES6 to ES5 Converter?</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="text-center">
-          <div class="text-4xl mb-4">🌐</div>
+          <div class="mb-4 flex justify-center">
+            <svg class="w-16 h-16 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
           <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Browser Compatibility</h3>
           <p class="text-sm" style="color: var(--text-secondary);">Support older browsers like IE11 with ES5 compatible code</p>
         </div>
         <div class="text-center">
-          <div class="text-4xl mb-4">⚡</div>
+          <div class="mb-4 flex justify-center">
+            <svg class="w-16 h-16 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
           <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Fast & Reliable</h3>
           <p class="text-sm" style="color: var(--text-secondary);">Instant conversion using Babel.js transpiler technology</p>
         </div>
         <div class="text-center">
-          <div class="text-4xl mb-4">🆓</div>
+          <div class="mb-4 flex justify-center">
+            <svg class="w-16 h-16 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
           <h3 class="font-semibold mb-2" style="color: var(--text-primary);">100% Free</h3>
           <p class="text-sm" style="color: var(--text-secondary);">No registration, no limits, completely free to use</p>
         </div>
         <div class="text-center">
-          <div class="text-4xl mb-4">🔒</div>
+          <div class="mb-4 flex justify-center">
+            <svg class="w-16 h-16 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+          </div>
           <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Privacy First</h3>
           <p class="text-sm" style="color: var(--text-secondary);">All processing done in your browser, code never leaves your device</p>
         </div>
@@ -414,8 +458,11 @@ class User {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
-            <div class="text-sm" style="color: var(--text-secondary);">
-              <span class="mr-4">🕒 5 min read</span>
+            <div class="text-sm inline-flex items-center gap-4" style="color: var(--text-secondary);">
+              <span class="inline-flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                5 min read
+              </span>
               <a href="/blog/" class="text-blue-600 hover:text-blue-800 font-medium">View All Articles →</a>
             </div>
           </div>
@@ -443,8 +490,9 @@ class User {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
-            <div class="text-sm" style="color: var(--text-secondary);">
-              <span>🕒 7 min read</span>
+            <div class="text-sm inline-flex items-center gap-1" style="color: var(--text-secondary);">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              7 min read
             </div>
           </div>
         </article>
@@ -471,8 +519,9 @@ class User {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
-            <div class="text-sm" style="color: var(--text-secondary);">
-              <span>🕒 8 min read</span>
+            <div class="text-sm inline-flex items-center gap-1" style="color: var(--text-secondary);">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              8 min read
             </div>
           </div>
         </article>
@@ -483,9 +532,10 @@ class User {
             <span class="blog-tag blog-tag-purple">Tool Comparison</span>
             <time class="text-sm" style="color: var(--text-tertiary);">January 18, 2025</time>
           </div>
-          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">
-            <a href="/blog/top-online-javascript-converters-2025/" class="hover:text-purple-600 transition-colors">
-              Top 5 Online JavaScript Converters in 2025 🥇
+          <h3 class="text-xl font-bold mb-3 inline-flex items-center gap-2" style="color: var(--text-primary);">
+            <a href="/blog/top-online-javascript-converters-2025/" class="hover:text-purple-600 transition-colors inline-flex items-center gap-2">
+              Top 5 Online JavaScript Converters in 2025
+              <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
             </a>
           </h3>
           <p class="mb-4 leading-relaxed" style="color: var(--text-secondary);">
@@ -499,8 +549,9 @@ class User {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
-            <div class="text-sm" style="color: var(--text-secondary);">
-              <span>🕒 6 min read</span>
+            <div class="text-sm inline-flex items-center gap-1" style="color: var(--text-secondary);">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              6 min read
             </div>
           </div>
         </article>
@@ -522,7 +573,10 @@ class User {
           Professional JavaScript developer specializing in modern web technologies and browser compatibility solutions.
         </p>
         <div class="flex justify-center space-x-6 text-sm">
-          <a href="/blog/" class="text-gray-300 hover:text-white">📚 Blog</a>
+          <a href="/blog/" class="text-gray-300 hover:text-white inline-flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            Blog
+          </a>
           <a href="https://selmansahbudak.com.tr/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white">Portfolio</a>
           <a href="https://github.com/Selman-S" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white">GitHub</a>
           <a href="mailto:contact@selmansahbudak.com.tr" class="text-gray-300 hover:text-white">Contact</a>
@@ -535,9 +589,10 @@ class User {
   <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 transform translate-y-full transition-transform duration-300">
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
       <div class="mb-4 md:mb-0">
-        <p class="text-sm">
-          🍪 We use cookies and Google Analytics to improve user experience and analyze website traffic. 
-          <a href="#privacy" class="underline hover:text-blue-300">Privacy Policy</a>
+        <p class="text-sm inline-flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+          <span>We use cookies and Google Analytics to improve user experience and analyze website traffic. 
+          <a href="#privacy" class="underline hover:text-blue-300">Privacy Policy</a></span>
         </p>
       </div>
       <div class="flex space-x-3">
