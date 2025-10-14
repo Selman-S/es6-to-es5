@@ -151,6 +151,43 @@ const ThemeTemplates = {
         </div>
       </div>
     </section>
+  `,
+
+  // Blog Main Theme Hero
+  blogMainHero: `
+    <div class="text-center py-8 mb-8">
+      <h1 class="text-4xl font-bold mb-3 text-gray-800">JavaScript Blog</h1>
+      <p class="text-xl text-gray-600">ES6 to ES5 Tutorials & Web Development Guides</p>
+    </div>
+  `,
+
+  // Blog Reddit Theme Hero
+  blogRedditHero: `
+    <div class="animated-background">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+    </div>
+    <section class="modern-hero" style="padding: 2.5rem 1rem;">
+      <div class="hero-badge">
+        <i data-lucide="book-open" style="width: 14px; height: 14px;"></i>
+        <span>JavaScript Tutorials & Guides</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="gradient-text">JavaScript</span>
+        <span class="hero-subtitle-inline">Blog</span>
+      </h1>
+      <p class="hero-description">
+        Learn ES6 to ES5 conversion and modern web development.<br>
+        <span class="hero-features">
+          <i data-lucide="rocket" class="inline-icon-sm"></i> Practical Guides
+          <span class="separator">•</span>
+          <i data-lucide="code" class="inline-icon-sm"></i> Code Examples
+          <span class="separator">•</span>
+          <i data-lucide="graduation-cap" class="inline-icon-sm"></i> Step-by-Step
+        </span>
+      </p>
+    </section>
   `
 };
 

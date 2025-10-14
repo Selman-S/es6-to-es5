@@ -5,6 +5,18 @@ class ThemeSwitcher {
     this.currentTheme = 'main';
     this.lucideLoaded = false;
     this.globalListenerAttached = false;
+    this.pageType = this.detectPageType();
+  }
+
+  // Detect page type (home, blog, blog-post)
+  detectPageType() {
+    const path = window.location.pathname;
+    if (path.includes('/blog/') && !path.endsWith('/blog/') && !path.endsWith('/blog/index.html')) {
+      return 'blog-post';
+    } else if (path.includes('/blog')) {
+      return 'blog';
+    }
+    return 'home';
   }
 
   // Initialize theme on page load
@@ -95,7 +107,7 @@ class ThemeSwitcher {
     }
 
     // Find and replace hero section
-    const heroSection = mainContent.querySelector('.text-center.py-8.mb-6');
+    const heroSection = mainContent.querySelector('.text-center.py-8.mb-6, .text-center.py-8.mb-8');
     const modernHero = mainContent.querySelector('.modern-hero');
     const seoSection = mainContent.querySelector('article.mb-8.text-center');
     
@@ -105,9 +117,17 @@ class ThemeSwitcher {
       if (seoSection) seoSection.remove();
       if (modernHero) modernHero.remove();
       
+      // Choose correct template based on page type
+      let heroTemplate;
+      if (this.pageType === 'blog' || this.pageType === 'blog-post') {
+        heroTemplate = ThemeTemplates.blogRedditHero;
+      } else {
+        heroTemplate = ThemeTemplates.redditHero;
+      }
+      
       // Create temporary container to parse HTML
       const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = ThemeTemplates.redditHero;
+      tempDiv.innerHTML = heroTemplate;
       
       // Insert animated background before main
       const animatedBg = tempDiv.querySelector('.animated-background');
@@ -129,8 +149,16 @@ class ThemeSwitcher {
       if (heroSection) heroSection.remove();
       if (seoSection) seoSection.remove();
       
+      // Choose correct template based on page type
+      let heroTemplate;
+      if (this.pageType === 'blog' || this.pageType === 'blog-post') {
+        heroTemplate = ThemeTemplates.blogMainHero;
+      } else {
+        heroTemplate = ThemeTemplates.mainHero;
+      }
+      
       // Insert main theme hero at the beginning of main
-      mainContent.insertAdjacentHTML('afterbegin', ThemeTemplates.mainHero);
+      mainContent.insertAdjacentHTML('afterbegin', heroTemplate);
     }
 
     // Update body data-theme attribute
