@@ -103,12 +103,6 @@
           <a href="/" class="hover:text-blue-200 transition-colors">🏠 Home</a>
           <a href="/blog/" class="hover:text-blue-200 transition-colors text-blue-200">📚 Blog</a>
           <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="hover:text-blue-200 transition-colors">💻 GitHub</a>
-          <!-- Theme Toggle -->
-          <div class="theme-toggle" id="themeToggle" role="button" aria-label="Toggle dark mode" tabindex="0">
-            <div class="theme-toggle-slider">
-              <span id="themeIcon">☀️</span>
-            </div>
-          </div>
         </div>
       </nav>
       
@@ -124,7 +118,7 @@
     <!-- Blog Header -->
     <section class="text-center mb-12">
       <h2 class="text-4xl font-bold text-gray-800 mb-4">Latest Articles</h2>
-      <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto ">
         Learn modern JavaScript development, ES6 to ES5 conversion techniques, and browser compatibility best practices.
       </p>
     </section>
@@ -284,49 +278,5 @@
     </div>
   </footer>
 
-  <!-- Theme Toggle Script -->
-  <script>
-    // Initialize theme from localStorage or system preference
-    function initializeTheme() {
-      const savedTheme = localStorage.getItem('es6_converter_theme');
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-      setTheme(theme);
-    }
-
-    // Set theme and update UI
-    function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('es6_converter_theme', theme);
-      
-      const themeIcon = document.getElementById('themeIcon');
-      if (themeIcon) {
-        themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
-      }
-    }
-
-    // Toggle theme
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      setTheme(newTheme);
-    }
-
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      initializeTheme();
-      
-      const themeToggle = document.getElementById('themeToggle');
-      if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-        themeToggle.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleTheme();
-          }
-        });
-      }
-    });
-  </script>
 </body>
 </html>

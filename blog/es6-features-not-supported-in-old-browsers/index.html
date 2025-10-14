@@ -136,12 +136,6 @@
           <a href="/" class="hover:text-blue-200 transition-colors">🏠 Home</a>
           <a href="/blog/" class="hover:text-blue-200 transition-colors">📚 Blog</a>
           <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="hover:text-blue-200 transition-colors">💻 GitHub</a>
-          <!-- Theme Toggle -->
-          <div class="theme-toggle" id="themeToggle" role="button" aria-label="Toggle dark mode" tabindex="0">
-            <div class="theme-toggle-slider">
-              <span id="themeIcon">☀️</span>
-            </div>
-          </div>
         </div>
       </nav>
     </div>
@@ -866,9 +860,5 @@ function getUserProfile(id, callback, errorCallback) {
     });
   </script>
 
-  <!-- Theme Toggle Script -->
-  <script>
-    function initializeTheme(){const e=localStorage.getItem("es6_converter_theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");setTheme(e)}function setTheme(e){document.documentElement.setAttribute("data-theme",e),localStorage.setItem("es6_converter_theme",e);const t=document.getElementById("themeIcon");t&&(t.textContent="dark"===e?"🌙":"☀️")}function toggleTheme(){const e=document.documentElement.getAttribute("data-theme");setTheme("dark"===e?"light":"dark")}document.addEventListener("DOMContentLoaded",function(){initializeTheme();const e=document.getElementById("themeToggle");e&&(e.addEventListener("click",toggleTheme),e.addEventListener("keypress",e=>{"Enter"!==e.key&&" "!==e.key||(e.preventDefault(),toggleTheme())}))});
-  </script>
 </body>
 </html>
