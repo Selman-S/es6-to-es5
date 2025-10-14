@@ -20,8 +20,8 @@ const ThemeTemplates = {
         </a>
         <div class="theme-selector">
           <select id="themeDropdown" class="theme-select">
-            <option value="main">🎨 Main Design</option>
-            <option value="reddit">✨ Reddit Design</option>
+            <option value="main">Main Design</option>
+            <option value="reddit">Reddit Design</option>
           </select>
         </div>
       </div>
@@ -58,8 +58,8 @@ const ThemeTemplates = {
           </a>
           <div class="theme-selector">
             <select id="themeDropdown" class="theme-select">
-              <option value="main">🎨 Main Design</option>
-              <option value="reddit">✨ Reddit Design</option>
+              <option value="main">Main Design</option>
+              <option value="reddit">Reddit Design</option>
             </select>
           </div>
         </div>
