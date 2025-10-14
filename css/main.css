@@ -1261,3 +1261,113 @@ article.prose {
   background: rgba(245, 158, 11, 0.15);
   border-color: rgba(245, 158, 11, 0.4);
 }
+
+/* ==================== Icon Styles ==================== */
+
+/* General icon styles */
+i[data-lucide] {
+  display: inline-block;
+  vertical-align: middle;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Button icons */
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* Badge icons */
+.badge-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Inline icons (for text) */
+.inline-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Button content wrapper for proper alignment */
+.btn-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Icon hover animations */
+.custom-btn:hover .btn-icon,
+.template-btn:hover .btn-icon {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.feature-icon i {
+  transition: transform 0.3s ease;
+}
+
+.feature-card-modern:hover .feature-icon i {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Ensure icons align properly in flex containers */
+.stats-badge,
+.compression-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Icon color overrides for specific contexts */
+.clear-code-btn .btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.copy-code-btn .btn-icon,
+.download-code-btn .btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Feature icon sizing in cards */
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Blog and footer icon sizing */
+a[href="/blog/"] i {
+  flex-shrink: 0;
+}
+
+/* Responsive icon adjustments */
+@media (max-width: 768px) {
+  .btn-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .badge-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .inline-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
