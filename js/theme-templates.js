@@ -108,16 +108,13 @@ const ThemeTemplates = {
     </article>
   `,
 
-  // Reddit Theme Hero Section
+  // Reddit Theme Hero Section (includes both background and hero)
   redditHero: `
-    <!-- Animated Background -->
     <div class="animated-background">
       <div class="gradient-orb orb-1"></div>
       <div class="gradient-orb orb-2"></div>
       <div class="gradient-orb orb-3"></div>
     </div>
-
-    <!-- Modern Hero Section -->
     <section class="modern-hero">
       <div class="hero-badge">
         <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>

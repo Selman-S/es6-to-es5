@@ -7,20 +7,18 @@ class ThemeSwitcher {
   }
 
   // Initialize theme on page load
-  initTheme() {
+  async initTheme() {
     // Load saved theme from localStorage
     const savedTheme = localStorage.getItem('selectedTheme') || 'main';
     this.currentTheme = savedTheme;
 
     // Apply the saved theme
     if (savedTheme === 'reddit') {
-      this.switchTheme('reddit', false);
-    } else {
-      this.switchTheme('main', false);
+      await this.switchTheme('reddit', false);
     }
 
     // Add event listener to dropdown
-    this.attachDropdownListener();
+    setTimeout(() => this.attachDropdownListener(), 100);
   }
 
   // Load Lucide icons script dynamically
@@ -56,25 +54,27 @@ class ThemeSwitcher {
   async switchTheme(themeName, saveToStorage = true) {
     this.currentTheme = themeName;
 
-    // Update CSS file
-    const cssLink = document.querySelector('link[href*="main.css"]');
-    if (themeName === 'reddit') {
-      cssLink.href = './css/reddit-theme.css';
-    } else {
-      cssLink.href = './css/main.css';
+    // Update CSS file using ID
+    const cssLink = document.getElementById('theme-stylesheet');
+    if (cssLink) {
+      if (themeName === 'reddit') {
+        cssLink.href = './css/reddit-theme.css';
+      } else {
+        cssLink.href = './css/main.css';
+      }
     }
 
     // Update header
     const header = document.querySelector('header');
     if (themeName === 'reddit') {
+      // Load Lucide icons first
+      await this.loadLucideIcons();
+      
       header.className = 'professional-header modern-header';
       header.innerHTML = ThemeTemplates.redditHeader;
       
-      // Load Lucide icons if not already loaded
-      await this.loadLucideIcons();
-      
-      // Initialize Lucide icons
-      setTimeout(() => this.initLucideIcons(), 100);
+      // Initialize Lucide icons for header
+      setTimeout(() => this.initLucideIcons(), 50);
     } else {
       header.className = 'sticky top-0 z-50 bg-[#293CA6] bg-gradient-to-r from-[#293CA6] to-[#3854A6] text-white shadow-lg';
       header.innerHTML = ThemeTemplates.mainHeader;
@@ -82,6 +82,7 @@ class ThemeSwitcher {
 
     // Update hero/title section
     const mainContent = document.querySelector('main.Page');
+    if (!mainContent) return;
     
     // Remove existing animated background if present
     const existingBg = document.querySelector('.animated-background');
@@ -90,44 +91,57 @@ class ThemeSwitcher {
     }
 
     // Find and replace hero section
-    const heroSection = mainContent.querySelector('.text-center.py-8.mb-6, .modern-hero');
+    const heroSection = mainContent.querySelector('.text-center.py-8.mb-6');
+    const modernHero = mainContent.querySelector('.modern-hero');
     const seoSection = mainContent.querySelector('article.mb-8.text-center');
     
     if (themeName === 'reddit') {
-      // Insert animated background before main
-      mainContent.insertAdjacentHTML('beforebegin', ThemeTemplates.redditHero);
-      
-      // Remove main theme sections
+      // Remove main theme sections first
       if (heroSection) heroSection.remove();
       if (seoSection) seoSection.remove();
+      if (modernHero) modernHero.remove();
       
-      // Move animated background outside main
-      const animatedBg = mainContent.querySelector('.animated-background');
+      // Create temporary container to parse HTML
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = ThemeTemplates.redditHero;
+      
+      // Insert animated background before main
+      const animatedBg = tempDiv.querySelector('.animated-background');
       if (animatedBg) {
         mainContent.parentNode.insertBefore(animatedBg, mainContent);
       }
       
-      // Initialize Lucide icons
-      setTimeout(() => this.initLucideIcons(), 100);
-    } else {
-      // Remove reddit theme sections
-      const modernHero = mainContent.querySelector('.modern-hero');
-      if (modernHero) {
-        modernHero.remove();
+      // Insert hero section at the beginning of main
+      const heroElement = tempDiv.querySelector('.modern-hero');
+      if (heroElement) {
+        mainContent.insertBefore(heroElement, mainContent.firstChild);
       }
+      
+      // Initialize Lucide icons for hero section
+      setTimeout(() => this.initLucideIcons(), 150);
+    } else {
+      // Remove reddit theme sections first
+      if (modernHero) modernHero.remove();
+      if (heroSection) heroSection.remove();
+      if (seoSection) seoSection.remove();
       
       // Insert main theme hero at the beginning of main
       mainContent.insertAdjacentHTML('afterbegin', ThemeTemplates.mainHero);
     }
 
+    // Update body data-theme attribute
+    document.body.setAttribute('data-theme', themeName);
+
     // Reattach dropdown listener after DOM update
-    setTimeout(() => this.attachDropdownListener(), 150);
+    setTimeout(() => this.attachDropdownListener(), 200);
 
     // Update dropdown selection
-    const dropdown = document.getElementById('themeDropdown');
-    if (dropdown) {
-      dropdown.value = themeName;
-    }
+    setTimeout(() => {
+      const dropdown = document.getElementById('themeDropdown');
+      if (dropdown) {
+        dropdown.value = themeName;
+      }
+    }, 50);
 
     // Save to localStorage
     if (saveToStorage) {
