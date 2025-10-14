@@ -189,74 +189,34 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   
-  <header>
-    <div class="bg-[#293CA6] bg-gradient-to-r from-[#293CA6] to-[#3854A6] text-white text-2xl p-4">
+  <header class="professional-header">
+    <div class="container mx-auto">
       <!-- Navigation Menu -->
-      <nav class="container mx-auto flex justify-between items-center mb-4">
-        <a href="/" class="text-xl font-semibold hover:text-blue-200 transition-colors">ES6→ES5</a>
-        <div class="flex items-center space-x-6">
-          <a href="/" class="hover:text-blue-200 transition-colors">🏠 Home</a>
-          <a href="/blog/" class="hover:text-blue-200 transition-colors">📚 Blog</a>
-          <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="hover:text-blue-200 transition-colors">💻 GitHub</a>
+      <nav class="header-nav">
+        <a href="/" class="header-logo">
+          <span class="logo-brackets">{</span>
+          <span class="logo-text">ES6→ES5</span>
+          <span class="logo-brackets">}</span>
+        </a>
+        <div class="header-links">
+          <a href="/" class="header-link">Home</a>
+          <a href="/blog/" class="header-link">Blog</a>
+          <a href="https://github.com/Selman-S" target="_blank" rel="noopener" class="header-link">GitHub</a>
         </div>
       </nav>
-      
-      <!-- Header Content -->
-      <div class="text-center">
-        <h1 class="text-3xl font-bold mb-2">ES6 to ES5 Converter</h1>
-        <p class="text-lg opacity-90">Free Online JavaScript Transpiler & Minifier</p>
-      </div>
     </div>
 </header>
 
-  <main class="Page container mx-auto mt-8">
-    <!-- SEO Content Section -->
-    <article class="mb-8 text-center">
-      <h2 class="text-2xl font-semibold mb-4" style="color: var(--text-primary);">Convert Modern JavaScript to Compatible Code</h2>
-      <p class="max-w-4xl mx-auto mb-6" style="color: var(--text-secondary);">
-        Transform your ES6/ES2015+ JavaScript code to ES5 for maximum browser compatibility. 
-        Our free online tool supports transpilation, minification, and deep minification with 
-        advanced whitespace removal. Perfect for legacy browser support and code optimization.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
-        <div class="feature-card feature-card-green">
-          <h3 class="font-semibold">🔄 Transpile</h3>
-          <p class="text-sm">Convert ES6+ to ES5</p>
-        </div>
-        <div class="feature-card feature-card-blue">
-          <h3 class="font-semibold">🗜️ Minify</h3>
-          <p class="text-sm">Reduce file size</p>
-        </div>
-        <div class="feature-card feature-card-purple">
-          <h3 class="font-semibold">⚡ Deep Clean</h3>
-          <p class="text-sm">Ultimate compression</p>
-        </div>
-      </div>
-    </article>
-
-    <!-- Sample Templates -->
-    <div class="sample-templates">
-      <span style="font-weight: 600; color: var(--text-secondary); font-size: 14px;">Quick Start:</span>
-      <button class="template-btn" onclick="loadTemplate('arrow')" title="Load arrow function example">
-        ➜ Arrow Function
-      </button>
-      <button class="template-btn" onclick="loadTemplate('class')" title="Load class example">
-        🏛️ Class
-      </button>
-      <button class="template-btn" onclick="loadTemplate('destructuring')" title="Load destructuring example">
-        📦 Destructuring
-      </button>
-      <button class="template-btn" onclick="loadTemplate('async')" title="Load async/await example">
-        ⏱️ Async/Await
-      </button>
-      <button class="template-btn" onclick="loadTemplate('spread')" title="Load spread operator example">
-        ⚡ Spread
-      </button>
-    </div>
+  <main class="Page container mx-auto">
+    <!-- Page Title Section -->
+    <section class="page-hero-compact">
+      <h1 class="page-title-compact">ES6 to ES5 Converter</h1>
+      <p class="page-subtitle-compact">Transform modern JavaScript to ES5 for maximum browser compatibility</p>
+    </section>
 
     <section class="converter-section flex" aria-label="JavaScript Code Converter Tool">
       <div class="flex-1">
-        <h4 class="text-2xl mb-2 font-semibold" style="color: var(--text-primary);">ES6/ES2015+ Input Code</h4>
+        <h4 class="text-lg mb-2 font-semibold" style="color: #1f2937;">ES6/ES2015+ Input</h4>
         <div class="code-input">
           <div class="stats-badge" id="inputStats">
             <span>📝</span>
@@ -304,7 +264,7 @@ class User {
         </button>
       </div>
       <div class="flex-1">
-        <h4 class="text-2xl mb-2 font-semibold" style="color: var(--text-primary);">ES5 Compatible Output</h4>
+        <h4 class="text-lg mb-2 font-semibold" style="color: #1f2937;">ES5 Output</h4>
         <div class="code-output">
           <div class="stats-badge" id="outputStats">
             <span>📄</span>
@@ -331,6 +291,47 @@ class User {
         </div>
       </div>
     </section>
+
+    <!-- Features Overview -->
+    <section class="features-overview">
+      <div class="feature-card-modern feature-card-green">
+        <div class="feature-icon">🔄</div>
+        <h3 class="feature-title">Transpile</h3>
+        <p class="feature-description">Convert ES6+ to ES5</p>
+      </div>
+      <div class="feature-card-modern feature-card-blue">
+        <div class="feature-icon">🗜️</div>
+        <h3 class="feature-title">Minify</h3>
+        <p class="feature-description">Reduce file size</p>
+      </div>
+      <div class="feature-card-modern feature-card-purple">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Deep Clean</h3>
+        <p class="feature-description">Ultimate compression</p>
+      </div>
+    </section>
+
+    <!-- Sample Templates - Below Converter -->
+    <div class="sample-templates-below">
+      <h3 class="sample-templates-title">📝 Quick Start Examples</h3>
+      <div class="sample-templates-grid">
+        <button class="template-btn" onclick="loadTemplate('arrow')" title="Load arrow function example">
+          ➜ Arrow Function
+        </button>
+        <button class="template-btn" onclick="loadTemplate('class')" title="Load class example">
+          🏛️ Class
+        </button>
+        <button class="template-btn" onclick="loadTemplate('destructuring')" title="Load destructuring example">
+          📦 Destructuring
+        </button>
+        <button class="template-btn" onclick="loadTemplate('async')" title="Load async/await example">
+          ⏱️ Async/Await
+        </button>
+        <button class="template-btn" onclick="loadTemplate('spread')" title="Load spread operator example">
+          ⚡ Spread
+        </button>
+      </div>
+    </div>
   </main>
   <div id="notification" class="hidden">
     <div class="notification-content">
@@ -341,32 +342,32 @@ class User {
   <!-- Additional SEO Content -->
   <section class="seo-section">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8" style="color: var(--text-primary);">Why Use Our ES6 to ES5 Converter?</h2>
+      <h2 class="text-3xl font-bold text-center mb-8" style="color: #1f2937;">Why Use Our ES6 to ES5 Converter?</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="text-center">
           <div class="text-4xl mb-4">🌐</div>
-          <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Browser Compatibility</h3>
-          <p class="text-sm" style="color: var(--text-secondary);">Support older browsers like IE11 with ES5 compatible code</p>
+          <h3 class="font-semibold mb-2" style="color: #1f2937;">Browser Compatibility</h3>
+          <p class="text-sm" style="color: #4b5563;">Support older browsers like IE11 with ES5 compatible code</p>
         </div>
         <div class="text-center">
           <div class="text-4xl mb-4">⚡</div>
-          <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Fast & Reliable</h3>
-          <p class="text-sm" style="color: var(--text-secondary);">Instant conversion using Babel.js transpiler technology</p>
+          <h3 class="font-semibold mb-2" style="color: #1f2937;">Fast & Reliable</h3>
+          <p class="text-sm" style="color: #4b5563;">Instant conversion using Babel.js transpiler technology</p>
         </div>
         <div class="text-center">
           <div class="text-4xl mb-4">🆓</div>
-          <h3 class="font-semibold mb-2" style="color: var(--text-primary);">100% Free</h3>
-          <p class="text-sm" style="color: var(--text-secondary);">No registration, no limits, completely free to use</p>
+          <h3 class="font-semibold mb-2" style="color: #1f2937;">100% Free</h3>
+          <p class="text-sm" style="color: #4b5563;">No registration, no limits, completely free to use</p>
         </div>
         <div class="text-center">
           <div class="text-4xl mb-4">🔒</div>
-          <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Privacy First</h3>
-          <p class="text-sm" style="color: var(--text-secondary);">All processing done in your browser, code never leaves your device</p>
+          <h3 class="font-semibold mb-2" style="color: #1f2937;">Privacy First</h3>
+          <p class="text-sm" style="color: #4b5563;">All processing done in your browser, code never leaves your device</p>
         </div>
       </div>
       
       <div class="mt-12 text-center">
-        <h3 class="text-2xl font-semibold mb-4" style="color: var(--text-primary);">Supported ES6+ Features</h3>
+        <h3 class="text-2xl font-semibold mb-4" style="color: #1f2937;">Supported ES6+ Features</h3>
         <div class="flex flex-wrap justify-center gap-2 mb-6">
           <span class="feature-tag feature-tag-blue">Arrow Functions</span>
           <span class="feature-tag feature-tag-green">Classes</span>
@@ -385,8 +386,8 @@ class User {
   <section class="blog-section">
     <div class="container mx-auto px-4">
       <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold mb-4" style="color: var(--text-primary);">Learn JavaScript ES6 to ES5</h2>
-        <p class="max-w-2xl mx-auto" style="color: var(--text-secondary);">
+        <h2 class="text-3xl font-bold mb-4" style="color: #1f2937;">Learn JavaScript ES6 to ES5</h2>
+        <p class="max-w-2xl mx-auto" style="color: #4b5563;">
           Explore our comprehensive guides and tutorials on JavaScript transpilation, browser compatibility, and modern web development best practices.
         </p>
       </div>
@@ -396,14 +397,14 @@ class User {
         <article class="blog-card">
           <div class="flex items-start justify-between mb-4">
             <span class="blog-tag blog-tag-green">Featured Tutorial</span>
-            <time class="text-sm" style="color: var(--text-tertiary);">January 15, 2025</time>
+            <time class="text-sm" style="color: #6b7280;">January 15, 2025</time>
           </div>
-          <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">
+          <h3 class="text-2xl font-bold mb-4" style="color: #1f2937;">
             <a href="/blog/what-is-es6-and-why-convert-to-es5/" class="hover:text-blue-600 transition-colors">
               What is ES6 and Why Convert to ES5?
             </a>
           </h3>
-          <p class="mb-6 leading-relaxed" style="color: var(--text-secondary);">
+          <p class="mb-6 leading-relaxed" style="color: #4b5563;">
             Learn the fundamental differences between ES6 and ES5 JavaScript, understand browser compatibility challenges, and discover why ES6 to ES5 conversion is still crucial in modern web development.
           </p>
           <div class="flex items-center justify-between">
@@ -414,7 +415,7 @@ class User {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
-            <div class="text-sm" style="color: var(--text-secondary);">
+            <div class="text-sm" style="color: #4b5563;">
               <span class="mr-4">🕒 5 min read</span>
               <a href="/blog/" class="text-blue-600 hover:text-blue-800 font-medium">View All Articles →</a>
             </div>
@@ -425,14 +426,14 @@ class User {
         <article class="blog-card mt-6">
           <div class="flex items-start justify-between mb-4">
             <span class="blog-tag blog-tag-blue">Step-by-Step Guide</span>
-            <time class="text-sm" style="color: var(--text-tertiary);">January 16, 2025</time>
+            <time class="text-sm" style="color: #6b7280;">January 16, 2025</time>
           </div>
-          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">
+          <h3 class="text-xl font-bold mb-3" style="color: #1f2937;">
             <a href="/blog/how-to-convert-es6-to-es5/" class="hover:text-green-600 transition-colors">
               How to Convert ES6 Code to ES5 (Complete Guide)
             </a>
           </h3>
-          <p class="mb-4 leading-relaxed" style="color: var(--text-secondary);">
+          <p class="mb-4 leading-relaxed" style="color: #4b5563;">
             Learn how to convert ES6 JavaScript code to ES5 step by step using our free online tool. Complete guide with examples, best practices, and browser compatibility tips.
           </p>
           <div class="flex items-center justify-between">
@@ -443,7 +444,7 @@ class User {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
-            <div class="text-sm" style="color: var(--text-secondary);">
+            <div class="text-sm" style="color: #4b5563;">
               <span>🕒 7 min read</span>
             </div>
           </div>
@@ -453,14 +454,14 @@ class User {
         <article class="blog-card mt-6">
           <div class="flex items-start justify-between mb-4">
             <span class="blog-tag blog-tag-red">Compatibility Guide</span>
-            <time class="text-sm" style="color: var(--text-tertiary);">January 17, 2025</time>
+            <time class="text-sm" style="color: #6b7280;">January 17, 2025</time>
           </div>
-          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">
+          <h3 class="text-xl font-bold mb-3" style="color: #1f2937;">
             <a href="/blog/es6-features-not-supported-in-old-browsers/" class="hover:text-red-600 transition-colors">
               ES6 Features Not Supported in Older Browsers
             </a>
           </h3>
-          <p class="mb-4 leading-relaxed" style="color: var(--text-secondary);">
+          <p class="mb-4 leading-relaxed" style="color: #4b5563;">
             Discover which ES6 JavaScript features don't work in older browsers like IE11. Learn about arrow functions, let/const, template literals, classes, and how to convert them to ES5.
           </p>
           <div class="flex items-center justify-between">
@@ -471,7 +472,7 @@ class User {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
-            <div class="text-sm" style="color: var(--text-secondary);">
+            <div class="text-sm" style="color: #4b5563;">
               <span>🕒 8 min read</span>
             </div>
           </div>
@@ -481,14 +482,14 @@ class User {
         <article class="blog-card mt-6">
           <div class="flex items-start justify-between mb-4">
             <span class="blog-tag blog-tag-purple">Tool Comparison</span>
-            <time class="text-sm" style="color: var(--text-tertiary);">January 18, 2025</time>
+            <time class="text-sm" style="color: #6b7280;">January 18, 2025</time>
           </div>
-          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">
+          <h3 class="text-xl font-bold mb-3" style="color: #1f2937;">
             <a href="/blog/top-online-javascript-converters-2025/" class="hover:text-purple-600 transition-colors">
               Top 5 Online JavaScript Converters in 2025 🥇
             </a>
           </h3>
-          <p class="mb-4 leading-relaxed" style="color: var(--text-secondary);">
+          <p class="mb-4 leading-relaxed" style="color: #4b5563;">
             Discover the best online JavaScript converters in 2025. Compare tools like Babel, esbuild, and the ES6-to-ES5 Converter for speed, simplicity, and accuracy.
           </p>
           <div class="flex items-center justify-between">
@@ -499,7 +500,7 @@ class User {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </a>
-            <div class="text-sm" style="color: var(--text-secondary);">
+            <div class="text-sm" style="color: #4b5563;">
               <span>🕒 6 min read</span>
             </div>
           </div>
