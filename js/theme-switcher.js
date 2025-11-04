@@ -110,7 +110,8 @@ class ThemeSwitcher {
     }
 
     // Find and replace hero section
-    const heroSection = mainContent.querySelector('.text-center.py-8.mb-6, .text-center.py-8.mb-8');
+    // Updated selector to match new compact title section with page-title-section class
+    const heroSection = mainContent.querySelector('.page-title-section, .text-center.py-8.mb-6, .text-center.py-8.mb-8, .text-center.py-4.mb-4');
     const modernHero = mainContent.querySelector('.modern-hero');
     const seoSection = mainContent.querySelector('article.mb-8.text-center');
     
@@ -149,19 +150,34 @@ class ThemeSwitcher {
     } else {
       // Remove reddit theme sections first
       if (modernHero) modernHero.remove();
-      if (heroSection) heroSection.remove();
-      if (seoSection) seoSection.remove();
+      // Don't remove heroSection or seoSection - they are original HTML sections that should stay
       
-      // Choose correct template based on page type
-      let heroTemplate;
-      if (this.pageType === 'blog' || this.pageType === 'blog-post') {
-        heroTemplate = ThemeTemplates.blogMainHero;
-      } else {
-        heroTemplate = ThemeTemplates.mainHero;
+      // Check if page-title-section exists, if not restore it from HTML structure
+      const existingPageTitle = mainContent.querySelector('.page-title-section');
+      if (!existingPageTitle) {
+        // Restore original page title section from HTML
+        const pageTitleHTML = `
+          <div class="page-title-section text-center py-4 mb-4">
+            <h1 class="text-4xl font-bold mb-2" style="color: var(--text-primary);">ES6 to ES5 Converter</h1>
+            <p class="text-xl text-gray-600">Free Online JavaScript Transpiler & Minifier</p>
+          </div>
+        `;
+        mainContent.insertAdjacentHTML('afterbegin', pageTitleHTML);
       }
       
-      // Insert main theme hero at the beginning of main
-      mainContent.insertAdjacentHTML('afterbegin', heroTemplate);
+      // Check if SEO section exists, if not restore it (for blog pages)
+      // For home page, SEO section is already in HTML, so we don't need to add it
+      if (this.pageType === 'blog' || this.pageType === 'blog-post') {
+        const existingSeoSection = mainContent.querySelector('article.mb-8.text-center');
+        if (!existingSeoSection) {
+          // Only add SEO section for blog pages if it doesn't exist
+          const blogHeroTemplate = this.pageType === 'blog' 
+            ? ThemeTemplates.blogMainHero 
+            : ThemeTemplates.blogMainHero;
+          mainContent.insertAdjacentHTML('afterbegin', blogHeroTemplate);
+        }
+      }
+      // For home page, HTML already has SEO section, so we don't add template
     }
 
     // Update body data-theme attribute

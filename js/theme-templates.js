@@ -68,12 +68,8 @@ const ThemeTemplates = {
   `,
 
   // Main Theme Hero/Title Section
+  // Note: Page Title Section is now in HTML, only SEO Content Section is added here
   mainHero: `
-    <!-- Page Title Section -->
-    <div class="text-center py-8 mb-6">
-      <h1 class="text-4xl font-bold mb-3" style="color: var(--text-primary);">ES6 to ES5 Converter</h1>
-      <p class="text-xl text-gray-600">Free Online JavaScript Transpiler & Minifier</p>
-    </div>
     <!-- SEO Content Section -->
     <article class="mb-8 text-center">
       <h2 class="text-2xl font-semibold mb-4" style="color: var(--text-primary);">Convert Modern JavaScript to Compatible Code</h2>
@@ -108,48 +104,21 @@ const ThemeTemplates = {
     </article>
   `,
 
-  // Reddit Theme Hero Section (includes both background and hero)
+  // Reddit Theme Hero Section (ultra-compact version - converter section moved above)
   redditHero: `
     <div class="animated-background">
       <div class="gradient-orb orb-1"></div>
       <div class="gradient-orb orb-2"></div>
       <div class="gradient-orb orb-3"></div>
     </div>
-    <section class="modern-hero">
-      <div class="hero-badge">
-        <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
-        <span>Free & Privacy-First JavaScript Tool</span>
-      </div>
-      <h1 class="hero-title">
+    <section class="modern-hero" style="padding: 0.75rem 1rem 0.5rem; margin-bottom: 0.5rem;">
+      <h1 class="hero-title" style="font-size: 1.875rem; margin-bottom: 0.25rem; line-height: 1.2;">
         <span class="gradient-text">ES6 to ES5</span>
         <span class="hero-subtitle-inline">Converter</span>
       </h1>
-      <p class="hero-description">
-        Transform modern JavaScript to ES5 instantly with our powerful transpiler.<br>
-        <span class="hero-features">
-          <i data-lucide="zap" class="inline-icon-sm"></i> Lightning Fast
-          <span class="separator">•</span>
-          <i data-lucide="shield" class="inline-icon-sm"></i> Browser Compatible
-          <span class="separator">•</span>
-          <i data-lucide="code-2" class="inline-icon-sm"></i> Production Ready
-        </span>
+      <p class="hero-description" style="font-size: 0.875rem; margin-bottom: 0; color: #6b7280;">
+        Free Online JavaScript Transpiler & Minifier
       </p>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Free Forever</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-number">0ms</div>
-          <div class="stat-label">Setup Time</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-number">∞</div>
-          <div class="stat-label">Conversions</div>
-        </div>
-      </div>
     </section>
   `,
 
